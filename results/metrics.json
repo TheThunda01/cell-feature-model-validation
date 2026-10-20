@@ -1,0 +1,51 @@
+{
+  "project_version": "0.1.0",
+  "seed": 20261020,
+  "purpose": "Educational internal holdout benchmark; not clinical validation",
+  "dataset": "Wisconsin Diagnostic Breast Cancer, sklearn bundled copy",
+  "source_doi": "10.24432/C5DW2B",
+  "data_sha256": "3019c221882c9c756a9b1c76da7ad72cf606ffe8e51791044aeaadeb33efbd12",
+  "n_samples": 569,
+  "n_features": 30,
+  "n_train": 455,
+  "n_test": 114,
+  "positive_label": "malignant",
+  "threshold": 0.5,
+  "training_malignant_count": 170,
+  "test_malignant_count": 42,
+  "selected_C": 1.0,
+  "selection_metric": "five-fold training-only ROC AUC",
+  "models": {
+    "logistic_regression": {
+      "roc_auc": 0.9943783068783068,
+      "balanced_accuracy": 0.9811507936507937,
+      "brier_score": 0.017984011975729432,
+      "true_negative": 71,
+      "false_positive": 1,
+      "false_negative": 1,
+      "true_positive": 41
+    },
+    "prior_baseline": {
+      "roc_auc": 0.5,
+      "balanced_accuracy": 0.5,
+      "brier_score": 0.23271407597607716,
+      "true_negative": 72,
+      "false_positive": 0,
+      "false_negative": 42,
+      "true_positive": 0
+    }
+  },
+  "logistic_conditional_test_auc_95_percentile_interval": {
+    "lower": 0.9807364162308781,
+    "upper": 1.0,
+    "valid_resamples": 2000,
+    "requested_resamples": 2000
+  },
+  "interval_scope": "Test-row resampling only; excludes training and site uncertainty",
+  "versions": {
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "scikit-learn": "1.8.0",
+    "matplotlib": "3.10.8"
+  }
+}

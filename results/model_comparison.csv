@@ -1,0 +1,3 @@
+model,roc_auc,balanced_accuracy,brier_score,true_negative,false_positive,false_negative,true_positive
+logistic_regression,0.9943783068783068,0.9811507936507937,0.017984011975729432,71,1,1,41
+prior_baseline,0.5,0.5,0.23271407597607716,72,0,42,0
