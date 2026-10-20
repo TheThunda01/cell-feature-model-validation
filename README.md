@@ -2,6 +2,8 @@
 
 **An inspectable study of what changes when model evaluation goes beyond one train/test score.**
 
+## Why this project
+
 **New here? [Read the project background, purpose, and key themes](docs/project-context.md).**
 
 [Understand the sampled biology and prediction concepts](docs/biology-and-concepts.md) · [Explore the conditional prevalence scenarios](docs/prevalence-sensitivity.md).
@@ -12,7 +14,7 @@ The useful question is methodological: can we separate model selection, threshol
 
 **The 114-record holdout was inspected in version 0.1.** We preserve it and keep it out of all computation used to develop models and thresholds. Its new results are descriptive replication, not fresh blind validation. The main new investigation uses the other 455 records.
 
-## What the investigation does
+## What it does
 
 1. Keeps the original 455/114 split, verified by a stored index fingerprint.
 2. Runs four outer stratified folds twice on the development data. In every outer training partition, three inner folds tune each model separately.
@@ -23,7 +25,9 @@ The useful question is methodological: can we separate model selection, threshol
 
 The source code never exports patient identifiers, row-level predictions, or a deployable model. It saves aggregate results and fingerprints instead.
 
-## Run the complete study
+A separate candidate-file preflight now checks feature names, finite values, label direction, provenance declarations, and exact numerical overlap with the benchmark. It fits no model and does not establish that a new dataset is suitable for external validation.
+
+## Quick start
 
 Use Python 3.12 from this repository's root. The dataset comes with scikit-learn, so the analysis runs offline once dependencies are installed.
 
@@ -44,7 +48,17 @@ python -m cell_validation --output-dir reproduced-results
 python scripts/check_reproduction.py reproduced-results
 ```
 
-## Start with the new evidence
+Try the input contract on explicitly synthetic feature values:
+
+```sh
+python -m cell_validation.preflight \
+  --data examples/synthetic_features.csv \
+  --metadata examples/synthetic_metadata.json
+```
+
+See [the expected aggregate report](examples/preflight_report.json) and [contract](docs/practical-use.md) before supplying another file.
+
+## Example results
 
 ![Training-only nested cross-validation results](results/nested_cv.png)
 
@@ -60,11 +74,33 @@ On the historical holdout, the lower logistic cutoff added a false positive with
 
 The calibration bars are pointwise Wilson intervals for observed bin fractions. They are not simultaneous uncertainty bands for the calibration function. The small sample, estimated probabilities, and data reuse all limit the conclusion.
 
-## What if the base rate changes?
+### What if the base rate changes?
 
 The added prevalence exercise holds the existing logistic cutoffs and historical sensitivity/specificity fixed, then calculates PPV and NPV at assumed positive-label fractions from 1% to 50%. These are mathematical scenarios with untested transportability assumptions, not new screening results or individual risk recalibration. [Read the generated report](results/prevalence_report.md) for the table and curves. No model is retrained and no cutoff is changed in this step.
 
-## Files worth opening
+## Practical use and limitations
+
+A familiar public benchmark can teach a workflow, but cannot establish clinical utility, fairness across populations, or performance under different acquisition practices. Neither associations nor forest splits identify biological mechanisms. Discrimination and calibration are different properties [5].
+
+The [practical guide](docs/practical-use.md) separates implemented input checks, operator responsibilities, and future external evaluation. Exact overlap can expose reused benchmark vectors; a negative check cannot establish independence. Passing the schema check does not establish equivalent acquisition procedures, feature units, or label ascertainment.
+
+## Documentation
+
+| Guide | What it covers |
+| --- | --- |
+| [Project context](docs/project-context.md) | Background, question, and key themes |
+| [Biology and concepts](docs/biology-and-concepts.md) | Cell morphology, prediction, and interpretation |
+| [Methods](docs/methods.md) | Data roles, cross-validation, thresholds, uncertainty |
+| [Analysis plan](docs/analysis-plan.md) | Prespecified settings and retained historical split |
+| [References](docs/references.md) | Scientific and implementation sources |
+| [Data provenance](docs/data-provenance.md) | Public source, transformations, license, fingerprints |
+| [Practical use](docs/practical-use.md) | Candidate-file contract, limits, and next steps |
+| [Literature review](docs/literature-review.md) | Bounded evidence appraisal and resulting changes |
+| [Search log](docs/search-log.json) | Search queries, retrieved records, screening decisions |
+| [Reporting map](docs/reporting-map.md) | Lessons and remaining gaps from reporting guidelines |
+| [Verification record](docs/verification.md) | Tests and reproduction history |
+
+### Result files worth opening
 
 | File | What it tells you |
 | --- | --- |
@@ -80,13 +116,11 @@ The added prevalence exercise holds the existing logistic cutoffs and historical
 
 [The analysis plan](docs/analysis-plan.md) records the choices. [Methods](docs/methods.md) explains the mathematics and separation of data roles. [The reporting map](docs/reporting-map.md) draws practical lessons from TRIPOD+AI [3] and PROBAST+AI [4] while identifying gaps. It is not a claim of formal guideline compliance or low risk of bias.
 
-## Scope, attribution, and contributions
-
-A familiar public benchmark can teach a workflow, but cannot establish clinical utility, fairness across populations, or performance under different acquisition practices. Neither associations nor forest splits identify biological mechanisms. Discrimination and calibration are different properties [5].
+## Development and reuse
 
 The code is MIT-licensed. The upstream dataset is CC BY 4.0 and has separate attribution requirements; see [data provenance](docs/data-provenance.md). This project was developed with AI assistance. Automated checks support reproducibility; they do not replace scientific review. Small, documented contributions are welcome through [the contribution guide](CONTRIBUTING.md).
 
-## References
+### References
 
 1. Wolberg et al. *Breast Cancer Wisconsin (Diagnostic)* [Dataset]. [doi:10.24432/C5DW2B](https://doi.org/10.24432/C5DW2B).
 2. Varma & Simon (2006). Bias in error estimation when using cross-validation for model selection. [doi:10.1186/1471-2105-7-91](https://doi.org/10.1186/1471-2105-7-91).

@@ -1,0 +1,12 @@
+{
+  "source": "Invented arithmetic values for a parser example; no biological observations.",
+  "data_kind": "synthetic",
+  "measurement_method": "No measurement; feature names copied from the documented public benchmark schema only.",
+  "feature_definition_reference": "https://scikit-learn.org/stable/datasets/toy_dataset.html#breast-cancer-dataset",
+  "independent_of_development": false,
+  "known_overlap_checked": false,
+  "label_mapping": {
+    "0": "benign",
+    "1": "malignant"
+  }
+}

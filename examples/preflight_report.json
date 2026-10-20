@@ -1,0 +1,24 @@
+{
+  "contract_version": "1.0",
+  "contract_valid": true,
+  "data_kind": "synthetic",
+  "rows": 3,
+  "features": 30,
+  "columns_reordered_to_contract": false,
+  "label_counts": {
+    "0": 2,
+    "1": 1
+  },
+  "duplicate_feature_rows": 0,
+  "exact_benchmark_overlap_rows": 0,
+  "constant_features": [],
+  "data_sha256": "e9e1d0328cc55b967e8b5777c27f34583d68657a417a88442c75f48f1d28cdf1",
+  "metadata_sha256": "44470d272244dc2cc803c9b0e9c048e070795e378b70de9882799c0ba6d195e8",
+  "independence_declared": false,
+  "overlap_review_declared": false,
+  "findings": [
+    "Independence or overlap review is not declared complete."
+  ],
+  "suitable_for_external_validation": "not_assessed",
+  "interpretation": "Structural checks and exact numeric overlap only. Metadata declarations are unverified; no model is fitted or applied. Matching names do not establish measurement equivalence or clinical utility."
+}

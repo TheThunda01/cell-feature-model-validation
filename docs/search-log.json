@@ -1,0 +1,414 @@
+{
+  "search_date": "2026-10-20",
+  "scope": "Feature-definition and provenance contracts before a future independent evaluation of a public cell-image feature benchmark.",
+  "review_type": "Bounded rapid evidence and practice review; not a systematic review",
+  "inclusion_criteria": [
+    "2022-01-01 to 2026-10-20 publication dates",
+    "Primary reporting/applicability guidance or direct empirical evidence about external-validation feasibility",
+    "Official relevant software validation documentation"
+  ],
+  "exclusion_criteria": [
+    "Editorial, translation or correction when original retained",
+    "Disease-specific applications/reviews without additional input-contract guidance",
+    "Work beyond schema/provenance scope"
+  ],
+  "searches": [
+    {
+      "source": "PubMed connector",
+      "query": "\"TRIPOD+AI\"[Title] OR \"PROBAST+AI\"[Title]",
+      "date_from": "2022/01/01",
+      "date_to": "2026/10/20",
+      "date_type": "publication",
+      "sort": "relevance",
+      "offset": 0,
+      "max_results": 10,
+      "reported_total": 25,
+      "returned_count": 10,
+      "retrieved_ids": [
+        "38626948",
+        "40127903",
+        "38626949",
+        "38636956",
+        "40739973",
+        "41320158",
+        "42470896",
+        "42204678",
+        "42625978",
+        "42048745"
+      ],
+      "next_offset": 10,
+      "has_more": true,
+      "limits": "Relevance pagination returned PMID 41320158 twice; reported total 25 but only 24 unique records retrieved over both pages."
+    },
+    {
+      "source": "PubMed connector",
+      "query": "\"external validation\"[Title] AND \"prediction models\"[Title] AND (guidance[Title/Abstract] OR reporting[Title/Abstract])",
+      "date_from": "2022/01/01",
+      "date_to": "2026/10/20",
+      "date_type": "publication",
+      "sort": "relevance",
+      "offset": 0,
+      "max_results": 10,
+      "reported_total": 5,
+      "returned_count": 5,
+      "retrieved_ids": [
+        "39983753",
+        "37756617",
+        "36471238",
+        "35396283",
+        "38987513"
+      ],
+      "next_offset": null,
+      "has_more": false,
+      "limits": "All reported records returned at offset 0; bounded query not entire literature."
+    },
+    {
+      "source": "PubMed connector",
+      "query": "\"TRIPOD+AI\"[Title] OR \"PROBAST+AI\"[Title]",
+      "date_from": "2022/01/01",
+      "date_to": "2026/10/20",
+      "date_type": "publication",
+      "sort": "relevance",
+      "offset": 10,
+      "max_results": 15,
+      "reported_total": 25,
+      "returned_count": 15,
+      "retrieved_ids": [
+        "42878218",
+        "42810441",
+        "41320158",
+        "42151078",
+        "41268028",
+        "42701048",
+        "38801203",
+        "42537858",
+        "41630071",
+        "41775155",
+        "42620416",
+        "39788590",
+        "42816257",
+        "42091285",
+        "42816258"
+      ],
+      "next_offset": null,
+      "has_more": false,
+      "limits": "Relevance pagination returned PMID 41320158 twice; reported total 25 but only 24 unique records retrieved over both pages."
+    },
+    {
+      "source": "GitHub connector targeted lookup",
+      "query": "scikit-learn/scikit-learn sklearn/utils/validation.py lines 2800-3000 and COPYING",
+      "total_results": null,
+      "total_results_reason": "Direct file lookup, not a ranked search",
+      "ref": "106573971c28d82a1b5579aea7a23eecd80355f0",
+      "retrieved_files": [
+        "sklearn/utils/validation.py:2800-3000",
+        "COPYING"
+      ],
+      "access": "Target source section and complete license inspected; development ref is not runtime version; no code copied"
+    }
+  ],
+  "screening": [
+    {
+      "pmid": "38626948",
+      "title": "TRIPOD+AI statement: updated guidance for reporting clinical prediction models that use regression or machine learning methods.",
+      "doi": "10.1136/bmj-2023-078378",
+      "decision": "include",
+      "reason": "Included: original reporting guidance directly relevant to predictor definitions and independent evaluation.",
+      "screening_access": "PubMed title/abstract metadata",
+      "appraisal_access": "Partial PMC full text; no comprehensive supplement review"
+    },
+    {
+      "pmid": "40127903",
+      "title": "PROBAST+AI: an updated quality, risk of bias, and applicability assessment tool for prediction models using regression or artificial intelligence methods.",
+      "doi": "10.1136/bmj-2024-082505",
+      "decision": "include",
+      "reason": "Included: original applicability/risk-of-bias guidance; no formal compliance claim.",
+      "screening_access": "PubMed title/abstract metadata",
+      "appraisal_access": "Partial PMC full text; no comprehensive supplement review"
+    },
+    {
+      "pmid": "38626949",
+      "title": "TRIPOD+AI: an updated reporting guideline for clinical prediction models.",
+      "doi": "10.1136/bmj.q824",
+      "decision": "exclude",
+      "reason": "Excluded: application-specific, secondary translation/editorial/correction or no additional input-contract guidance beyond retained originals.",
+      "screening_access": "PubMed title/abstract metadata",
+      "appraisal_access": "Title/abstract metadata only"
+    },
+    {
+      "pmid": "38636956",
+      "title": "TRIPOD+AI statement: updated guidance for reporting clinical prediction models that use regression or machine learning methods.",
+      "doi": "10.1136/bmj.q902",
+      "decision": "exclude",
+      "reason": "Excluded: application-specific, secondary translation/editorial/correction or no additional input-contract guidance beyond retained originals.",
+      "screening_access": "PubMed title/abstract metadata",
+      "appraisal_access": "Title/abstract metadata only"
+    },
+    {
+      "pmid": "40739973",
+      "title": "TRIPOD+AI statement: updated guidance for reporting clinical prediction models that use regression or machine learning methods: a Korean translation.",
+      "doi": "10.12771/emj.2025.00668",
+      "decision": "exclude",
+      "reason": "Excluded: application-specific, secondary translation/editorial/correction or no additional input-contract guidance beyond retained originals.",
+      "screening_access": "PubMed title/abstract metadata",
+      "appraisal_access": "Title/abstract metadata only"
+    },
+    {
+      "pmid": "41320158",
+      "title": "Assessing adherence to TRIPOD+AI guidelines in machine learning models for predicting small for gestational age and fetal growth restriction: a systematic review.",
+      "doi": "10.1016/j.ajogmf.2025.101862",
+      "decision": "exclude",
+      "reason": "Excluded: application-specific, secondary translation/editorial/correction or no additional input-contract guidance beyond retained originals.",
+      "screening_access": "PubMed title/abstract metadata",
+      "appraisal_access": "Title/abstract metadata only"
+    },
+    {
+      "pmid": "42470896",
+      "title": "Artificial intelligence for short-term post-mortem interval estimation: a systematic review with PROBAST and TRIPOD+AI appraisal.",
+      "doi": "10.1016/j.legalmed.2026.102931",
+      "decision": "exclude",
+      "reason": "Excluded: application-specific, secondary translation/editorial/correction or no additional input-contract guidance beyond retained originals.",
+      "screening_access": "PubMed title/abstract metadata",
+      "appraisal_access": "Title/abstract metadata only"
+    },
+    {
+      "pmid": "42204678",
+      "title": "Quality and performance of machine learning versus logistic regression for predicting IVIG resistance in Kawasaki disease: a PROBAST+AI systematic comparison.",
+      "doi": "10.1186/s12874-026-02893-2",
+      "decision": "exclude",
+      "reason": "Excluded: application-specific, secondary translation/editorial/correction or no additional input-contract guidance beyond retained originals.",
+      "screening_access": "PubMed title/abstract metadata",
+      "appraisal_access": "Title/abstract metadata only"
+    },
+    {
+      "pmid": "42625978",
+      "title": "Operationalising Inclusion for Participatory Design: Worked Examples for TRIPOD+AI & PROBAST+AI.",
+      "doi": "10.1177/11786329261477136",
+      "decision": "exclude",
+      "reason": "Excluded: application-specific, secondary translation/editorial/correction or no additional input-contract guidance beyond retained originals.",
+      "screening_access": "PubMed title/abstract metadata",
+      "appraisal_access": "Title/abstract metadata only"
+    },
+    {
+      "pmid": "42048745",
+      "title": "Risk-prediction models for postpartum depression: Assessment of risk of bias using PROBAST+AI.",
+      "doi": "10.1016/j.midw.2026.104778",
+      "decision": "exclude",
+      "reason": "Excluded: application-specific, secondary translation/editorial/correction or no additional input-contract guidance beyond retained originals.",
+      "screening_access": "PubMed title/abstract metadata",
+      "appraisal_access": "Title/abstract metadata only"
+    },
+    {
+      "pmid": "39983753",
+      "title": "Clinical prediction models for in vitro fertilization outcomes: a systematic review, meta-analysis, and external validation.",
+      "doi": "10.1093/humrep/deaf013",
+      "decision": "exclude",
+      "reason": "Excluded: application-specific, secondary translation/editorial/correction or no additional input-contract guidance beyond retained originals.",
+      "screening_access": "PubMed title/abstract metadata",
+      "appraisal_access": "Title/abstract metadata only"
+    },
+    {
+      "pmid": "37756617",
+      "title": "Development and External Validation of Individualized Prediction Models for Pain Intensity Outcomes in Patients With Neck Pain, Low Back Pain, or Both in Primary Care Settings.",
+      "doi": "10.1093/ptj/pzad128",
+      "decision": "exclude",
+      "reason": "Excluded: disease-specific empirical validation; selected feasibility source more directly informs metadata contract.",
+      "screening_access": "PubMed title/abstract metadata",
+      "appraisal_access": "Title/abstract metadata only"
+    },
+    {
+      "pmid": "36471238",
+      "title": "External validation of existing dementia prediction models on observational health data.",
+      "doi": "10.1186/s12874-022-01793-5",
+      "decision": "include",
+      "reason": "Included: empirical external-validation feasibility and predictor-specification problems; different disease limits transfer.",
+      "screening_access": "PubMed title/abstract metadata",
+      "appraisal_access": "Partial PMC full text; no comprehensive supplement review"
+    },
+    {
+      "pmid": "35396283",
+      "title": "Head-to-head comparison of 14 prediction models for postoperative delirium in elderly non-ICU patients: an external validation study.",
+      "doi": "10.1136/bmjopen-2021-054023",
+      "decision": "exclude",
+      "reason": "Excluded: application-specific, secondary translation/editorial/correction or no additional input-contract guidance beyond retained originals.",
+      "screening_access": "PubMed title/abstract metadata",
+      "appraisal_access": "Title/abstract metadata only"
+    },
+    {
+      "pmid": "38987513",
+      "title": "Multicenter external validation of prediction models for clinical outcomes after spinal fusion for lumbar degenerative disease.",
+      "doi": "10.1007/s00586-024-08395-3",
+      "decision": "exclude",
+      "reason": "Excluded: application-specific, secondary translation/editorial/correction or no additional input-contract guidance beyond retained originals.",
+      "screening_access": "PubMed title/abstract metadata",
+      "appraisal_access": "Title/abstract metadata only"
+    },
+    {
+      "pmid": "42878218",
+      "title": "Artificial intelligence EEG biomarkers for schizophrenia diagnosis: Systematic review with PROBAST+AI assessment.",
+      "doi": "10.1192/j.eurpsy.2026.12262",
+      "decision": "exclude",
+      "reason": "Excluded: application-specific, secondary translation/editorial/correction or no additional input-contract guidance beyond retained originals.",
+      "screening_access": "PubMed title/abstract metadata",
+      "appraisal_access": "Title/abstract metadata only"
+    },
+    {
+      "pmid": "42810441",
+      "title": "Clinical readiness and methodological rigor of AI models for ventricular arrhythmia and sudden cardiac death prediction: A systematic review with PROBAST+AI appraisal.",
+      "doi": "10.1016/j.repc.2026.05.007",
+      "decision": "exclude",
+      "reason": "Excluded: application-specific, secondary translation/editorial/correction or no additional input-contract guidance beyond retained originals.",
+      "screening_access": "PubMed title/abstract metadata",
+      "appraisal_access": "Title/abstract metadata only"
+    },
+    {
+      "pmid": "42151078",
+      "title": "[Interpretation of PROBAST-AI: a tool for assessing the quality, risk of bias, and applicability of prediction models based on regression or artificial intelligence methods].",
+      "doi": "10.3760/cma.j.cn112338-20250903-00624",
+      "decision": "exclude",
+      "reason": "Excluded: application-specific, secondary translation/editorial/correction or no additional input-contract guidance beyond retained originals.",
+      "screening_access": "PubMed title/abstract metadata",
+      "appraisal_access": "Title/abstract metadata only"
+    },
+    {
+      "pmid": "41268028",
+      "title": "Effect of TRIPOD+AI Guidelines on the Reporting Quality of Artificial Intelligence Prediction Models in Orthopaedic Surgery: An 18-Month Bibliometric Study.",
+      "doi": "10.7759/cureus.97176",
+      "decision": "exclude",
+      "reason": "Excluded: application-specific, secondary translation/editorial/correction or no additional input-contract guidance beyond retained originals.",
+      "screening_access": "PubMed title/abstract metadata",
+      "appraisal_access": "Title/abstract metadata only"
+    },
+    {
+      "pmid": "42701048",
+      "title": "The Translational Gap in AI for Oropharyngeal Squamous Cell Carcinoma: A TRIPOD+AI Scoping Review of Methodological Barriers to Treatment Deintensification.",
+      "doi": "10.1016/j.acra.2026.08.075",
+      "decision": "exclude",
+      "reason": "Excluded: application-specific, secondary translation/editorial/correction or no additional input-contract guidance beyond retained originals.",
+      "screening_access": "PubMed title/abstract metadata",
+      "appraisal_access": "Title/abstract metadata only"
+    },
+    {
+      "pmid": "38801203",
+      "title": "Enhancing Transparency and Reporting Standards in Diabetes Prediction Modeling: The Significance of the TRIPOD+AI 2024 Statement.",
+      "doi": "10.1177/19322968241255106",
+      "decision": "exclude",
+      "reason": "Excluded: application-specific, secondary translation/editorial/correction or no additional input-contract guidance beyond retained originals.",
+      "screening_access": "PubMed title/abstract metadata",
+      "appraisal_access": "Title/abstract metadata only"
+    },
+    {
+      "pmid": "42537858",
+      "title": "Incomplete reporting persists in orthopedic machine learning models: a systematic review of TRIPOD and TRIPOD+AI reporting completeness.",
+      "doi": "10.1016/j.jclinepi.2026.112438",
+      "decision": "exclude",
+      "reason": "Excluded: application-specific, secondary translation/editorial/correction or no additional input-contract guidance beyond retained originals.",
+      "screening_access": "PubMed title/abstract metadata",
+      "appraisal_access": "Title/abstract metadata only"
+    },
+    {
+      "pmid": "41630071",
+      "title": "Machine learning-based COVID-19 prognostic models lag behind in reporting quality: findings from a TRIPOD/TRIPOD + AI systematic review.",
+      "doi": "10.1186/s41512-026-00218-x",
+      "decision": "exclude",
+      "reason": "Excluded: application-specific, secondary translation/editorial/correction or no additional input-contract guidance beyond retained originals.",
+      "screening_access": "PubMed title/abstract metadata",
+      "appraisal_access": "Title/abstract metadata only"
+    },
+    {
+      "pmid": "41775155",
+      "title": "Assessing the completeness of reporting in imaging studies using artificial neural network models for cancer diagnosis: Adherence to the TRIPOD-AI guideline.",
+      "doi": "10.1016/j.ejrad.2026.112760",
+      "decision": "exclude",
+      "reason": "Excluded: application-specific, secondary translation/editorial/correction or no additional input-contract guidance beyond retained originals.",
+      "screening_access": "PubMed title/abstract metadata",
+      "appraisal_access": "Title/abstract metadata only"
+    },
+    {
+      "pmid": "42620416",
+      "title": "Machine learning quantifies immuno-virological interactions: a TRIPOD+AI compliant prediction model for HIV-1 salvage therapy outcomes.",
+      "doi": "10.3389/fimmu.2026.1846559",
+      "decision": "exclude",
+      "reason": "Excluded: application-specific, secondary translation/editorial/correction or no additional input-contract guidance beyond retained originals.",
+      "screening_access": "PubMed title/abstract metadata",
+      "appraisal_access": "Title/abstract metadata only"
+    },
+    {
+      "pmid": "39788590",
+      "title": "[Interpretation of the transparent reporting of a multivariable prediction model for individual prognosis or diagnosis based on regression or machine learning methods (TRIPOD+AI)].",
+      "doi": "10.3760/cma.j.cn112138-20240926-00609",
+      "decision": "exclude",
+      "reason": "Excluded: application-specific, secondary translation/editorial/correction or no additional input-contract guidance beyond retained originals.",
+      "screening_access": "PubMed title/abstract metadata",
+      "appraisal_access": "Title/abstract metadata only"
+    },
+    {
+      "pmid": "42816257",
+      "title": "Critical appraisal of a machine-learning model for predicting right-sided colon cancer recurrence: toward TRIPOD+AI-compliant reporting and multicenter external validation.",
+      "doi": "10.1016/j.rgmxen.2026.09.005",
+      "decision": "exclude",
+      "reason": "Excluded: application-specific, secondary translation/editorial/correction or no additional input-contract guidance beyond retained originals.",
+      "screening_access": "PubMed title/abstract metadata",
+      "appraisal_access": "Title/abstract metadata only"
+    },
+    {
+      "pmid": "42091285",
+      "title": "Closing the fairness gap: a call for equitable machine learning in fetal growth restriction prediction: A Letter to the Editor regarding 'Assessing adherence to TRIPOD+AI guidelines in machine learning models for predicting small for gestational age and fetal growth restriction: a systematic review.",
+      "doi": "10.1016/j.ajogmf.2026.101923",
+      "decision": "exclude",
+      "reason": "Excluded: application-specific, secondary translation/editorial/correction or no additional input-contract guidance beyond retained originals.",
+      "screening_access": "PubMed title/abstract metadata",
+      "appraisal_access": "Title/abstract metadata only"
+    },
+    {
+      "pmid": "42816258",
+      "title": "Response to Therán-León, JS, regarding \"Critical appraisal of a machine-learning model for predicting right-sided colon cancer recurrence: Toward TRIPOD+AI-compliant reporting and multicenter external validation\".",
+      "doi": "10.1016/j.rgmxen.2026.09.006",
+      "decision": "exclude",
+      "reason": "Excluded: application-specific, secondary translation/editorial/correction or no additional input-contract guidance beyond retained originals.",
+      "screening_access": "PubMed title/abstract metadata",
+      "appraisal_access": "Title/abstract metadata only"
+    }
+  ],
+  "counts": {
+    "pubmed_returned_slots": 30,
+    "pubmed_unique_screened": 29,
+    "pubmed_publications_cited": 3,
+    "supplementary_sources_cited": 1
+  },
+  "full_text_retrieval": [
+    {
+      "pmid": "38626948",
+      "pmcid": "PMC11019967",
+      "available": true,
+      "characters_returned": 20000,
+      "truncated": true,
+      "total_characters": 53674,
+      "supplements": "Not comprehensively retrieved or assessed"
+    },
+    {
+      "pmid": "40127903",
+      "pmcid": "PMC11931409",
+      "available": true,
+      "characters_returned": 20000,
+      "truncated": true,
+      "total_characters": 63550,
+      "supplements": "Not comprehensively retrieved or assessed"
+    },
+    {
+      "pmid": "36471238",
+      "pmcid": "PMC9720950",
+      "available": true,
+      "characters_returned": 20000,
+      "truncated": true,
+      "total_characters": 38979,
+      "supplements": "Not comprehensively retrieved or assessed"
+    }
+  ],
+  "limitations": [
+    "Single reviewer, one bibliographic database, narrow English queries",
+    "No independent duplicate screening or formal risk-of-bias assessment",
+    "Full-text responses truncated; claims confined to inspected sections",
+    "No review completeness or PRISMA claim"
+  ]
+}
