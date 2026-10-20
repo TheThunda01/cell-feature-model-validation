@@ -8,13 +8,16 @@ import math
 from pathlib import Path
 
 from sklearn.datasets import load_breast_cancer
+from cell_validation.feature_mapping import validate_feature_map
 
 CONTRACT_VERSION = '1.0'
 MAX_BYTES = 10_000_000
 MAX_ROWS = 100_000
 
 
-def inspect_inputs(data_path, metadata_path):
+def inspect_inputs(data_path, metadata_path, feature_map_path=None, require_feature_map=False):
+    if require_feature_map and feature_map_path is None:
+        raise ValueError('a feature map is required; supply --feature-map')
     data_path, metadata_path = Path(data_path), Path(metadata_path)
     if data_path.stat().st_size > MAX_BYTES or metadata_path.stat().st_size > MAX_BYTES:
         raise ValueError('input exceeds the 10 MB preflight limit')
@@ -82,7 +85,7 @@ def inspect_inputs(data_path, metadata_path):
     constant = [name for i, name in enumerate(names) if minima[i] == maxima[i]]
     if constant:
         findings.append('Constant features need review; they are not automatically invalid.')
-    return {'contract_version': CONTRACT_VERSION, 'contract_valid': True,
+    report = {'contract_version': CONTRACT_VERSION, 'contract_valid': True,
             'data_kind': metadata['data_kind'], 'rows': count, 'features': len(names),
             'columns_reordered_to_contract': header[:len(names)] != names,
             'label_counts': label_counts, 'duplicate_feature_rows': duplicates,
@@ -93,15 +96,20 @@ def inspect_inputs(data_path, metadata_path):
             'overlap_review_declared': metadata['known_overlap_checked'],
             'findings': findings, 'suitable_for_external_validation': 'not_assessed',
             'interpretation': 'Structural checks and exact numeric overlap only. Metadata declarations are unverified; no model is fitted or applied. Matching names do not establish measurement equivalence or clinical utility.'}
+    if feature_map_path is not None:
+        report['feature_mapping'] = validate_feature_map(feature_map_path,names,report['data_sha256'],require_feature_map)
+    return report
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--data', type=Path, required=True)
     parser.add_argument('--metadata', type=Path, required=True)
+    parser.add_argument('--feature-map',type=Path,help='optional feature definitions, units, transformations and review declarations')
+    parser.add_argument('--require-feature-map',action='store_true',help='require a CSV-bound map with complete review declarations')
     args = parser.parse_args()
     try:
-        print(json.dumps(inspect_inputs(args.data, args.metadata), indent=2, allow_nan=False))
+        print(json.dumps(inspect_inputs(args.data, args.metadata,args.feature_map,args.require_feature_map), indent=2, allow_nan=False))
     except (ValueError, OSError, UnicodeError, csv.Error) as error:
         parser.exit(2, f'feature preflight failed: {error}\n')
 

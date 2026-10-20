@@ -1,0 +1,37 @@
+{
+  "contract_version": "1.0",
+  "contract_valid": true,
+  "data_kind": "synthetic",
+  "rows": 3,
+  "features": 30,
+  "columns_reordered_to_contract": false,
+  "label_counts": {
+    "0": 2,
+    "1": 1
+  },
+  "duplicate_feature_rows": 0,
+  "exact_benchmark_overlap_rows": 0,
+  "constant_features": [],
+  "data_sha256": "e9e1d0328cc55b967e8b5777c27f34583d68657a417a88442c75f48f1d28cdf1",
+  "metadata_sha256": "44470d272244dc2cc803c9b0e9c048e070795e378b70de9882799c0ba6d195e8",
+  "independence_declared": false,
+  "overlap_review_declared": false,
+  "findings": [
+    "Independence or overlap review is not declared complete."
+  ],
+  "suitable_for_external_validation": "not_assessed",
+  "interpretation": "Structural checks and exact numeric overlap only. Metadata declarations are unverified; no model is fitted or applied. Matching names do not establish measurement equivalence or clinical utility.",
+  "feature_mapping": {
+    "schema_version": "1.0",
+    "map_sha256": "eb9f2b98bc3d2f8cd1a3d74b225460b0397c5e854d33fc21baa3cb7ceb7a6ef7",
+    "bound_to_input": true,
+    "mappings_present": 30,
+    "expected_features": 30,
+    "declarations_complete": true,
+    "missing_metadata": [],
+    "missing_features": [],
+    "incomplete_features": [],
+    "semantic_compatibility_established": false,
+    "interpretation": "Only declaration structure/completeness and CSV byte binding checked. No transformation, unit verification, clinical validation, or measurement-equivalence assessment is performed."
+  }
+}

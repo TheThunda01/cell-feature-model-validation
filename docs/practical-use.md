@@ -12,6 +12,8 @@ An optional `reference_label` accepts only `0` for benign and `1` for malignant.
 
 The output gives input SHA-256 hashes, counts, constant features, repeated feature-vector counts, and exact numeric overlap with all 569 benchmark records, including development and historical holdout data. Duplicate counts are extra occurrences after the first, regardless of label. Overlap counts include every matching input row. Matching uses parsed floating-point feature values; rounding, transformations, or measurement changes can conceal a relationship. Absence of an exact match does not prove independence. `suitable_for_external_validation` is always `not_assessed`.
 
+The optional `--feature-map FILE.json` checks the [30-feature mapping contract](feature-mapping.md). It reports missing definitions, units, transformations, review declarations, and file binding. `--require-feature-map` additionally requires all those declarations and a matching CSV digest. It does not perform transformations or establish measurement equivalence. Malformed map types, duplicate/unknown feature names, unsupported versions, or a wrong digest fail in either mode. Without these flags, preflight output is unchanged.
+
 ## Worked use case
 
 ```sh
@@ -21,6 +23,8 @@ python -m cell_validation.preflight \
 ```
 
 The [example report](../examples/preflight_report.json) contains three invented feature vectors, two illustrative benign labels, and one illustrative malignant label. The values and labels are arithmetic fixtures, not measured cells. There are no exact benchmark matches. The incomplete independence declaration remains visible. This exercises the contract without presenting synthetic data as external evidence.
+
+For the mapping feature, run `python -m cell_validation.preflight --data examples/synthetic_features.csv --metadata examples/synthetic_metadata.json --feature-map examples/synthetic_feature_map.json --require-feature-map`. The [result](../examples/feature_map_report.json) accepts the fixture's complete declarations while explicitly leaving semantic compatibility unestablished.
 
 Run the original study separately with `python -m cell_validation --output-dir reproduced-results`, then `python scripts/check_reproduction.py reproduced-results`. Preflight does not change its models, cutoffs, data split, or results.
 
@@ -34,7 +38,7 @@ There is no trained-model export, inference endpoint, external performance estim
 
 ## Next improvements
 
-1. Add a published feature-definition mapping template. Acceptance: each feature has an explicit source definition, units, and review decision; ambiguous mappings fail closed.
-2. Add protocol metadata for candidate evaluations. Acceptance: sampling, outcome ascertainment, timing, missingness, and prespecified metrics are required before an evaluation runner is considered.
+1. Add protocol metadata for candidate evaluations. Acceptance: sampling, outcome ascertainment, timing, missingness, and prespecified metrics are required before an evaluation runner is considered.
+2. Add an independent mapping-review workflow. Acceptance: two recorded reviews and unresolved disagreements remain visible; software never infers scientific agreement from matching text.
 3. Add reviewed approximate-overlap diagnostics. Acceptance: controlled rounding fixtures are detected, false matches are quantified, and every result remains a review flag.
 4. Obtain a genuinely independent, appropriately licensed cohort if feasible. Acceptance: documented independence and acquisition compatibility are reviewed before any performance results are generated.

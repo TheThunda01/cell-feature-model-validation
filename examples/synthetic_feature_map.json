@@ -1,0 +1,311 @@
+{
+  "schema_version": "1.0",
+  "mapping_id": "synthetic-contract-demo-v1",
+  "data_sha256": "e9e1d0328cc55b967e8b5777c27f34583d68657a417a88442c75f48f1d28cdf1",
+  "reviewer": "Repository fixture: illustrative review declarations only",
+  "reviewed_on": "2026-10-20",
+  "benchmark_reference": "https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic",
+  "benchmark_units_note": "Units are not established by a matching column name. Consult the source measurement procedure.",
+  "mappings": [
+    {
+      "feature": "mean radius",
+      "source_field": "mean radius",
+      "source_definition": "Invented arithmetic column 1; no biological measurement.",
+      "source_units": "Dimensionless invented numbers",
+      "transform_description": "No transformation; values are retained as supplied.",
+      "transform_reference": "docs/feature-mapping.md#synthetic-example",
+      "transform_kind": "identity",
+      "reviewed": true
+    },
+    {
+      "feature": "mean texture",
+      "source_field": "mean texture",
+      "source_definition": "Invented arithmetic column 2; no biological measurement.",
+      "source_units": "Dimensionless invented numbers",
+      "transform_description": "No transformation; values are retained as supplied.",
+      "transform_reference": "docs/feature-mapping.md#synthetic-example",
+      "transform_kind": "identity",
+      "reviewed": true
+    },
+    {
+      "feature": "mean perimeter",
+      "source_field": "mean perimeter",
+      "source_definition": "Invented arithmetic column 3; no biological measurement.",
+      "source_units": "Dimensionless invented numbers",
+      "transform_description": "No transformation; values are retained as supplied.",
+      "transform_reference": "docs/feature-mapping.md#synthetic-example",
+      "transform_kind": "identity",
+      "reviewed": true
+    },
+    {
+      "feature": "mean area",
+      "source_field": "mean area",
+      "source_definition": "Invented arithmetic column 4; no biological measurement.",
+      "source_units": "Dimensionless invented numbers",
+      "transform_description": "No transformation; values are retained as supplied.",
+      "transform_reference": "docs/feature-mapping.md#synthetic-example",
+      "transform_kind": "identity",
+      "reviewed": true
+    },
+    {
+      "feature": "mean smoothness",
+      "source_field": "mean smoothness",
+      "source_definition": "Invented arithmetic column 5; no biological measurement.",
+      "source_units": "Dimensionless invented numbers",
+      "transform_description": "No transformation; values are retained as supplied.",
+      "transform_reference": "docs/feature-mapping.md#synthetic-example",
+      "transform_kind": "identity",
+      "reviewed": true
+    },
+    {
+      "feature": "mean compactness",
+      "source_field": "mean compactness",
+      "source_definition": "Invented arithmetic column 6; no biological measurement.",
+      "source_units": "Dimensionless invented numbers",
+      "transform_description": "No transformation; values are retained as supplied.",
+      "transform_reference": "docs/feature-mapping.md#synthetic-example",
+      "transform_kind": "identity",
+      "reviewed": true
+    },
+    {
+      "feature": "mean concavity",
+      "source_field": "mean concavity",
+      "source_definition": "Invented arithmetic column 7; no biological measurement.",
+      "source_units": "Dimensionless invented numbers",
+      "transform_description": "No transformation; values are retained as supplied.",
+      "transform_reference": "docs/feature-mapping.md#synthetic-example",
+      "transform_kind": "identity",
+      "reviewed": true
+    },
+    {
+      "feature": "mean concave points",
+      "source_field": "mean concave points",
+      "source_definition": "Invented arithmetic column 8; no biological measurement.",
+      "source_units": "Dimensionless invented numbers",
+      "transform_description": "No transformation; values are retained as supplied.",
+      "transform_reference": "docs/feature-mapping.md#synthetic-example",
+      "transform_kind": "identity",
+      "reviewed": true
+    },
+    {
+      "feature": "mean symmetry",
+      "source_field": "mean symmetry",
+      "source_definition": "Invented arithmetic column 9; no biological measurement.",
+      "source_units": "Dimensionless invented numbers",
+      "transform_description": "No transformation; values are retained as supplied.",
+      "transform_reference": "docs/feature-mapping.md#synthetic-example",
+      "transform_kind": "identity",
+      "reviewed": true
+    },
+    {
+      "feature": "mean fractal dimension",
+      "source_field": "mean fractal dimension",
+      "source_definition": "Invented arithmetic column 10; no biological measurement.",
+      "source_units": "Dimensionless invented numbers",
+      "transform_description": "No transformation; values are retained as supplied.",
+      "transform_reference": "docs/feature-mapping.md#synthetic-example",
+      "transform_kind": "identity",
+      "reviewed": true
+    },
+    {
+      "feature": "radius error",
+      "source_field": "radius error",
+      "source_definition": "Invented arithmetic column 11; no biological measurement.",
+      "source_units": "Dimensionless invented numbers",
+      "transform_description": "No transformation; values are retained as supplied.",
+      "transform_reference": "docs/feature-mapping.md#synthetic-example",
+      "transform_kind": "identity",
+      "reviewed": true
+    },
+    {
+      "feature": "texture error",
+      "source_field": "texture error",
+      "source_definition": "Invented arithmetic column 12; no biological measurement.",
+      "source_units": "Dimensionless invented numbers",
+      "transform_description": "No transformation; values are retained as supplied.",
+      "transform_reference": "docs/feature-mapping.md#synthetic-example",
+      "transform_kind": "identity",
+      "reviewed": true
+    },
+    {
+      "feature": "perimeter error",
+      "source_field": "perimeter error",
+      "source_definition": "Invented arithmetic column 13; no biological measurement.",
+      "source_units": "Dimensionless invented numbers",
+      "transform_description": "No transformation; values are retained as supplied.",
+      "transform_reference": "docs/feature-mapping.md#synthetic-example",
+      "transform_kind": "identity",
+      "reviewed": true
+    },
+    {
+      "feature": "area error",
+      "source_field": "area error",
+      "source_definition": "Invented arithmetic column 14; no biological measurement.",
+      "source_units": "Dimensionless invented numbers",
+      "transform_description": "No transformation; values are retained as supplied.",
+      "transform_reference": "docs/feature-mapping.md#synthetic-example",
+      "transform_kind": "identity",
+      "reviewed": true
+    },
+    {
+      "feature": "smoothness error",
+      "source_field": "smoothness error",
+      "source_definition": "Invented arithmetic column 15; no biological measurement.",
+      "source_units": "Dimensionless invented numbers",
+      "transform_description": "No transformation; values are retained as supplied.",
+      "transform_reference": "docs/feature-mapping.md#synthetic-example",
+      "transform_kind": "identity",
+      "reviewed": true
+    },
+    {
+      "feature": "compactness error",
+      "source_field": "compactness error",
+      "source_definition": "Invented arithmetic column 16; no biological measurement.",
+      "source_units": "Dimensionless invented numbers",
+      "transform_description": "No transformation; values are retained as supplied.",
+      "transform_reference": "docs/feature-mapping.md#synthetic-example",
+      "transform_kind": "identity",
+      "reviewed": true
+    },
+    {
+      "feature": "concavity error",
+      "source_field": "concavity error",
+      "source_definition": "Invented arithmetic column 17; no biological measurement.",
+      "source_units": "Dimensionless invented numbers",
+      "transform_description": "No transformation; values are retained as supplied.",
+      "transform_reference": "docs/feature-mapping.md#synthetic-example",
+      "transform_kind": "identity",
+      "reviewed": true
+    },
+    {
+      "feature": "concave points error",
+      "source_field": "concave points error",
+      "source_definition": "Invented arithmetic column 18; no biological measurement.",
+      "source_units": "Dimensionless invented numbers",
+      "transform_description": "No transformation; values are retained as supplied.",
+      "transform_reference": "docs/feature-mapping.md#synthetic-example",
+      "transform_kind": "identity",
+      "reviewed": true
+    },
+    {
+      "feature": "symmetry error",
+      "source_field": "symmetry error",
+      "source_definition": "Invented arithmetic column 19; no biological measurement.",
+      "source_units": "Dimensionless invented numbers",
+      "transform_description": "No transformation; values are retained as supplied.",
+      "transform_reference": "docs/feature-mapping.md#synthetic-example",
+      "transform_kind": "identity",
+      "reviewed": true
+    },
+    {
+      "feature": "fractal dimension error",
+      "source_field": "fractal dimension error",
+      "source_definition": "Invented arithmetic column 20; no biological measurement.",
+      "source_units": "Dimensionless invented numbers",
+      "transform_description": "No transformation; values are retained as supplied.",
+      "transform_reference": "docs/feature-mapping.md#synthetic-example",
+      "transform_kind": "identity",
+      "reviewed": true
+    },
+    {
+      "feature": "worst radius",
+      "source_field": "worst radius",
+      "source_definition": "Invented arithmetic column 21; no biological measurement.",
+      "source_units": "Dimensionless invented numbers",
+      "transform_description": "No transformation; values are retained as supplied.",
+      "transform_reference": "docs/feature-mapping.md#synthetic-example",
+      "transform_kind": "identity",
+      "reviewed": true
+    },
+    {
+      "feature": "worst texture",
+      "source_field": "worst texture",
+      "source_definition": "Invented arithmetic column 22; no biological measurement.",
+      "source_units": "Dimensionless invented numbers",
+      "transform_description": "No transformation; values are retained as supplied.",
+      "transform_reference": "docs/feature-mapping.md#synthetic-example",
+      "transform_kind": "identity",
+      "reviewed": true
+    },
+    {
+      "feature": "worst perimeter",
+      "source_field": "worst perimeter",
+      "source_definition": "Invented arithmetic column 23; no biological measurement.",
+      "source_units": "Dimensionless invented numbers",
+      "transform_description": "No transformation; values are retained as supplied.",
+      "transform_reference": "docs/feature-mapping.md#synthetic-example",
+      "transform_kind": "identity",
+      "reviewed": true
+    },
+    {
+      "feature": "worst area",
+      "source_field": "worst area",
+      "source_definition": "Invented arithmetic column 24; no biological measurement.",
+      "source_units": "Dimensionless invented numbers",
+      "transform_description": "No transformation; values are retained as supplied.",
+      "transform_reference": "docs/feature-mapping.md#synthetic-example",
+      "transform_kind": "identity",
+      "reviewed": true
+    },
+    {
+      "feature": "worst smoothness",
+      "source_field": "worst smoothness",
+      "source_definition": "Invented arithmetic column 25; no biological measurement.",
+      "source_units": "Dimensionless invented numbers",
+      "transform_description": "No transformation; values are retained as supplied.",
+      "transform_reference": "docs/feature-mapping.md#synthetic-example",
+      "transform_kind": "identity",
+      "reviewed": true
+    },
+    {
+      "feature": "worst compactness",
+      "source_field": "worst compactness",
+      "source_definition": "Invented arithmetic column 26; no biological measurement.",
+      "source_units": "Dimensionless invented numbers",
+      "transform_description": "No transformation; values are retained as supplied.",
+      "transform_reference": "docs/feature-mapping.md#synthetic-example",
+      "transform_kind": "identity",
+      "reviewed": true
+    },
+    {
+      "feature": "worst concavity",
+      "source_field": "worst concavity",
+      "source_definition": "Invented arithmetic column 27; no biological measurement.",
+      "source_units": "Dimensionless invented numbers",
+      "transform_description": "No transformation; values are retained as supplied.",
+      "transform_reference": "docs/feature-mapping.md#synthetic-example",
+      "transform_kind": "identity",
+      "reviewed": true
+    },
+    {
+      "feature": "worst concave points",
+      "source_field": "worst concave points",
+      "source_definition": "Invented arithmetic column 28; no biological measurement.",
+      "source_units": "Dimensionless invented numbers",
+      "transform_description": "No transformation; values are retained as supplied.",
+      "transform_reference": "docs/feature-mapping.md#synthetic-example",
+      "transform_kind": "identity",
+      "reviewed": true
+    },
+    {
+      "feature": "worst symmetry",
+      "source_field": "worst symmetry",
+      "source_definition": "Invented arithmetic column 29; no biological measurement.",
+      "source_units": "Dimensionless invented numbers",
+      "transform_description": "No transformation; values are retained as supplied.",
+      "transform_reference": "docs/feature-mapping.md#synthetic-example",
+      "transform_kind": "identity",
+      "reviewed": true
+    },
+    {
+      "feature": "worst fractal dimension",
+      "source_field": "worst fractal dimension",
+      "source_definition": "Invented arithmetic column 30; no biological measurement.",
+      "source_units": "Dimensionless invented numbers",
+      "transform_description": "No transformation; values are retained as supplied.",
+      "transform_reference": "docs/feature-mapping.md#synthetic-example",
+      "transform_kind": "identity",
+      "reviewed": true
+    }
+  ]
+}

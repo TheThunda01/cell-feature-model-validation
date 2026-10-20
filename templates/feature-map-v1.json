@@ -1,0 +1,311 @@
+{
+  "schema_version": "1.0",
+  "mapping_id": "",
+  "data_sha256": "",
+  "reviewer": "",
+  "reviewed_on": "",
+  "benchmark_reference": "https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic",
+  "benchmark_units_note": "Units are not established by a matching column name. Consult the source measurement procedure.",
+  "mappings": [
+    {
+      "feature": "mean radius",
+      "source_field": "",
+      "source_definition": "",
+      "source_units": "",
+      "transform_description": "",
+      "transform_reference": "",
+      "transform_kind": "unknown",
+      "reviewed": false
+    },
+    {
+      "feature": "mean texture",
+      "source_field": "",
+      "source_definition": "",
+      "source_units": "",
+      "transform_description": "",
+      "transform_reference": "",
+      "transform_kind": "unknown",
+      "reviewed": false
+    },
+    {
+      "feature": "mean perimeter",
+      "source_field": "",
+      "source_definition": "",
+      "source_units": "",
+      "transform_description": "",
+      "transform_reference": "",
+      "transform_kind": "unknown",
+      "reviewed": false
+    },
+    {
+      "feature": "mean area",
+      "source_field": "",
+      "source_definition": "",
+      "source_units": "",
+      "transform_description": "",
+      "transform_reference": "",
+      "transform_kind": "unknown",
+      "reviewed": false
+    },
+    {
+      "feature": "mean smoothness",
+      "source_field": "",
+      "source_definition": "",
+      "source_units": "",
+      "transform_description": "",
+      "transform_reference": "",
+      "transform_kind": "unknown",
+      "reviewed": false
+    },
+    {
+      "feature": "mean compactness",
+      "source_field": "",
+      "source_definition": "",
+      "source_units": "",
+      "transform_description": "",
+      "transform_reference": "",
+      "transform_kind": "unknown",
+      "reviewed": false
+    },
+    {
+      "feature": "mean concavity",
+      "source_field": "",
+      "source_definition": "",
+      "source_units": "",
+      "transform_description": "",
+      "transform_reference": "",
+      "transform_kind": "unknown",
+      "reviewed": false
+    },
+    {
+      "feature": "mean concave points",
+      "source_field": "",
+      "source_definition": "",
+      "source_units": "",
+      "transform_description": "",
+      "transform_reference": "",
+      "transform_kind": "unknown",
+      "reviewed": false
+    },
+    {
+      "feature": "mean symmetry",
+      "source_field": "",
+      "source_definition": "",
+      "source_units": "",
+      "transform_description": "",
+      "transform_reference": "",
+      "transform_kind": "unknown",
+      "reviewed": false
+    },
+    {
+      "feature": "mean fractal dimension",
+      "source_field": "",
+      "source_definition": "",
+      "source_units": "",
+      "transform_description": "",
+      "transform_reference": "",
+      "transform_kind": "unknown",
+      "reviewed": false
+    },
+    {
+      "feature": "radius error",
+      "source_field": "",
+      "source_definition": "",
+      "source_units": "",
+      "transform_description": "",
+      "transform_reference": "",
+      "transform_kind": "unknown",
+      "reviewed": false
+    },
+    {
+      "feature": "texture error",
+      "source_field": "",
+      "source_definition": "",
+      "source_units": "",
+      "transform_description": "",
+      "transform_reference": "",
+      "transform_kind": "unknown",
+      "reviewed": false
+    },
+    {
+      "feature": "perimeter error",
+      "source_field": "",
+      "source_definition": "",
+      "source_units": "",
+      "transform_description": "",
+      "transform_reference": "",
+      "transform_kind": "unknown",
+      "reviewed": false
+    },
+    {
+      "feature": "area error",
+      "source_field": "",
+      "source_definition": "",
+      "source_units": "",
+      "transform_description": "",
+      "transform_reference": "",
+      "transform_kind": "unknown",
+      "reviewed": false
+    },
+    {
+      "feature": "smoothness error",
+      "source_field": "",
+      "source_definition": "",
+      "source_units": "",
+      "transform_description": "",
+      "transform_reference": "",
+      "transform_kind": "unknown",
+      "reviewed": false
+    },
+    {
+      "feature": "compactness error",
+      "source_field": "",
+      "source_definition": "",
+      "source_units": "",
+      "transform_description": "",
+      "transform_reference": "",
+      "transform_kind": "unknown",
+      "reviewed": false
+    },
+    {
+      "feature": "concavity error",
+      "source_field": "",
+      "source_definition": "",
+      "source_units": "",
+      "transform_description": "",
+      "transform_reference": "",
+      "transform_kind": "unknown",
+      "reviewed": false
+    },
+    {
+      "feature": "concave points error",
+      "source_field": "",
+      "source_definition": "",
+      "source_units": "",
+      "transform_description": "",
+      "transform_reference": "",
+      "transform_kind": "unknown",
+      "reviewed": false
+    },
+    {
+      "feature": "symmetry error",
+      "source_field": "",
+      "source_definition": "",
+      "source_units": "",
+      "transform_description": "",
+      "transform_reference": "",
+      "transform_kind": "unknown",
+      "reviewed": false
+    },
+    {
+      "feature": "fractal dimension error",
+      "source_field": "",
+      "source_definition": "",
+      "source_units": "",
+      "transform_description": "",
+      "transform_reference": "",
+      "transform_kind": "unknown",
+      "reviewed": false
+    },
+    {
+      "feature": "worst radius",
+      "source_field": "",
+      "source_definition": "",
+      "source_units": "",
+      "transform_description": "",
+      "transform_reference": "",
+      "transform_kind": "unknown",
+      "reviewed": false
+    },
+    {
+      "feature": "worst texture",
+      "source_field": "",
+      "source_definition": "",
+      "source_units": "",
+      "transform_description": "",
+      "transform_reference": "",
+      "transform_kind": "unknown",
+      "reviewed": false
+    },
+    {
+      "feature": "worst perimeter",
+      "source_field": "",
+      "source_definition": "",
+      "source_units": "",
+      "transform_description": "",
+      "transform_reference": "",
+      "transform_kind": "unknown",
+      "reviewed": false
+    },
+    {
+      "feature": "worst area",
+      "source_field": "",
+      "source_definition": "",
+      "source_units": "",
+      "transform_description": "",
+      "transform_reference": "",
+      "transform_kind": "unknown",
+      "reviewed": false
+    },
+    {
+      "feature": "worst smoothness",
+      "source_field": "",
+      "source_definition": "",
+      "source_units": "",
+      "transform_description": "",
+      "transform_reference": "",
+      "transform_kind": "unknown",
+      "reviewed": false
+    },
+    {
+      "feature": "worst compactness",
+      "source_field": "",
+      "source_definition": "",
+      "source_units": "",
+      "transform_description": "",
+      "transform_reference": "",
+      "transform_kind": "unknown",
+      "reviewed": false
+    },
+    {
+      "feature": "worst concavity",
+      "source_field": "",
+      "source_definition": "",
+      "source_units": "",
+      "transform_description": "",
+      "transform_reference": "",
+      "transform_kind": "unknown",
+      "reviewed": false
+    },
+    {
+      "feature": "worst concave points",
+      "source_field": "",
+      "source_definition": "",
+      "source_units": "",
+      "transform_description": "",
+      "transform_reference": "",
+      "transform_kind": "unknown",
+      "reviewed": false
+    },
+    {
+      "feature": "worst symmetry",
+      "source_field": "",
+      "source_definition": "",
+      "source_units": "",
+      "transform_description": "",
+      "transform_reference": "",
+      "transform_kind": "unknown",
+      "reviewed": false
+    },
+    {
+      "feature": "worst fractal dimension",
+      "source_field": "",
+      "source_definition": "",
+      "source_units": "",
+      "transform_description": "",
+      "transform_reference": "",
+      "transform_kind": "unknown",
+      "reviewed": false
+    }
+  ]
+}

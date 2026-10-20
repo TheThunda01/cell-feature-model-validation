@@ -1,0 +1,139 @@
+{
+  "search_date": "2026-10-20",
+  "round": "02",
+  "scope": "Round 2 (same date as round 1): declared predictor measurement definitions, units and transformations before future external evaluation.",
+  "inclusion_criteria": [
+    "Publications dated 2022-01-01 through 2026-10-20 directly examining predictor measurement heterogeneity in prediction models",
+    "Official benchmark definitions and parser documentation"
+  ],
+  "exclusion_criteria": [
+    "Different substantive domains without direct predictor-mapping implications",
+    "Reported issue dates outside the specified window; no inference from ambiguous indexing dates"
+  ],
+  "searches": [
+    {
+      "source": "PubMed connector",
+      "query": "\"measurement heterogeneity\"[Title/Abstract] AND prediction[Title/Abstract]",
+      "date_from": "2022/01/01",
+      "date_to": "2026/10/20",
+      "date_type": "publication",
+      "sort": "relevance",
+      "max_results": 20,
+      "offset": 0,
+      "reported_total": 3,
+      "returned_count": 3,
+      "retrieved_ids": [
+        "35387683",
+        "42880376",
+        "42707146"
+      ],
+      "next_offset": null,
+      "limits": "All returned records screened. Narrow query; not an exhaustive search."
+    },
+    {
+      "source": "Official UCI dataset page",
+      "query": "https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic",
+      "reported_total": null,
+      "returned_count": 1,
+      "retrieved_ids": [
+        "UCI17"
+      ],
+      "access": "Dataset description and variable information inspected",
+      "decision": "include",
+      "limit": "Measurement descriptions do not establish a candidate file's units or compatibility"
+    },
+    {
+      "source": "Installed official scikit-learn description",
+      "query": "sklearn.datasets.load_breast_cancer().DESCR; scikit-learn1.8.0",
+      "reported_total": null,
+      "returned_count": 1,
+      "retrieved_ids": [
+        "sklearn1.8.0:load_breast_cancer.DESCR"
+      ],
+      "access": "Feature names and mean/standard-error/worst summary description inspected locally",
+      "decision": "include",
+      "limit": "Public benchmark description only, no new cohort"
+    },
+    {
+      "source": "Official Python parser documentation",
+      "query": "https://docs.python.org/3.12/library/csv.html",
+      "reported_total": null,
+      "returned_count": 1,
+      "retrieved_ids": [
+        "Python3.12.15:csv"
+      ],
+      "access": "DictReader and strict dialect sections inspected",
+      "decision": "include",
+      "limit": "Defines parser behavior, not scientific data validity"
+    },
+    {
+      "source": "Official Python documentation redirect",
+      "query": "https://docs.python.org/3/library/csv.html#csv.Dialect.strict",
+      "reported_total": null,
+      "returned_count": 1,
+      "retrieved_ids": [
+        "Python3.15.0:csv"
+      ],
+      "access": "Automatically served3.15 docs; then explicitly retrieved3.12 docs",
+      "decision": "not_cited",
+      "limit": "Runtime-specific reference is3.12"
+    },
+    {
+      "source": "Official UCI archive lookup",
+      "query": "https://archive.ics.uci.edu/static/public/17/breast+cancer+wisconsin+diagnostic.zip",
+      "reported_total": null,
+      "returned_count": 0,
+      "retrieved_ids": [],
+      "access": "Web tool returned Unicode decoding error on ZIP",
+      "decision": "not_used",
+      "limit": "No supplementary ZIP files appraised"
+    }
+  ],
+  "screening": [
+    {
+      "pmid": "35387683",
+      "title": "Quantitative prediction error analysis to investigate predictive performance under predictor measurement heterogeneity at model implementation.",
+      "doi": "10.1186/s41512-022-00121-1",
+      "reported_publication_date": "2022 Apr 07",
+      "decision": "include",
+      "reason": "Direct measurement-heterogeneity methods study; no transfer of its performance estimates.",
+      "access": "PubMed abstract plus first 30,000 PMC full-text characters; no supplements"
+    },
+    {
+      "pmid": "42880376",
+      "title": "Sedentary behavior as a Gut-Brain metabolic state.",
+      "doi": "10.1016/j.bbi.2026.107068",
+      "reported_publication_date": "2026 Oct 15",
+      "decision": "exclude",
+      "reason": "Different substantive domain; no direct mapping-contract evidence.",
+      "access": "PubMed title/abstract only"
+    },
+    {
+      "pmid": "42707146",
+      "title": "Psychological correlates of problematic pornography use: A systematic review and meta-analysis of measurement and conceptualization differences.",
+      "doi": "10.1016/j.abrep.2026.100741",
+      "reported_publication_date": "2026 Dec",
+      "decision": "exclude",
+      "reason": "Different substantive domain; returned issue date December 2026 lies outside requested window despite the PubMed filter.",
+      "access": "PubMed title/abstract only"
+    }
+  ],
+  "counts": {
+    "pubmed_returned": 3,
+    "unique_records_screened": 3,
+    "pubmed_publications_cited": 1
+  },
+  "full_text": {
+    "pmid": "35387683",
+    "pmcid": "PMC8988417",
+    "truncated": true,
+    "characters_returned": 30000,
+    "total_characters": 34252,
+    "supplementary_review": "Not performed"
+  },
+  "limits": [
+    "Same-day second implementation scope; not elapsed-time surveillance or a new cohort",
+    "Single reviewer, one narrow query, no formal risk-of-bias scoring",
+    "Original round1 search-log.json preserved; counts are round2 only"
+  ]
+}

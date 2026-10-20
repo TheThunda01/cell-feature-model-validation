@@ -58,6 +58,14 @@ python -m cell_validation.preflight \
 
 See [the expected aggregate report](examples/preflight_report.json) and [contract](docs/practical-use.md) before supplying another file.
 
+A [30-feature mapping template](templates/feature-map-v1.json) records definitions, units, upstream transformations, and review declarations. To require a complete, CSV-bound record using the explicitly synthetic example:
+
+```sh
+python -m cell_validation.preflight --data examples/synthetic_features.csv --metadata examples/synthetic_metadata.json --feature-map examples/synthetic_feature_map.json --require-feature-map
+```
+
+Read [the mapping guide](docs/feature-mapping.md) before filling a template. The command checks declarations; it does not verify their scientific truth or apply transformations.
+
 ## Example results
 
 ![Training-only nested cross-validation results](results/nested_cv.png)
@@ -84,6 +92,8 @@ A familiar public benchmark can teach a workflow, but cannot establish clinical 
 
 The [practical guide](docs/practical-use.md) separates implemented input checks, operator responsibilities, and future external evaluation. Exact overlap can expose reused benchmark vectors; a negative check cannot establish independence. Passing the schema check does not establish equivalent acquisition procedures, feature units, or label ascertainment.
 
+Mapping checks are optional unless `--require-feature-map` is used. Even a complete declaration record reports `semantic_compatibility_established: false`, while the historical holdout keeps its previously observed status.
+
 ## Documentation
 
 | Guide | What it covers |
@@ -97,6 +107,8 @@ The [practical guide](docs/practical-use.md) separates implemented input checks,
 | [Practical use](docs/practical-use.md) | Candidate-file contract, limits, and next steps |
 | [Literature review](docs/literature-review.md) | Bounded evidence appraisal and resulting changes |
 | [Search log](docs/search-log.json) | Search queries, retrieved records, screening decisions |
+| [Round 2 evidence update](docs/search-update-02.json) | Same-day search on measurement heterogeneity |
+| [Feature mapping](docs/feature-mapping.md) | Template, optional checks, required-map mode, and boundaries |
 | [Reporting map](docs/reporting-map.md) | Lessons and remaining gaps from reporting guidelines |
 | [Verification record](docs/verification.md) | Tests and reproduction history |
 
