@@ -1,5 +1,5 @@
 {
-  "project_version": "0.2.0",
+  "project_version": "0.3.0",
   "seed": 20261020,
   "purpose": "Exploratory model-validation methods study; not clinical validation",
   "holdout_status": "Previously observed in version 0.1; descriptive replication, not fresh blind evidence",

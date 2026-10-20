@@ -9,3 +9,10 @@ Version 0.2 was run locally on 2026-10-20 with Python 3.12 and the pinned depend
 - The starting GitHub commit was `6ddd8bbdfcee1a96f88c00fc82b45ebb14225ad1`; all 19 source/output blobs matched that version before this extension began. No historical holdout records were moved.
 
 This local verification does not certify the scientific validity of the data or clinical use. The GitHub Actions workflow includes tests, a complete rerun, and numerical output comparison, but its status for version 0.2 depends on running it after the upgrade is published.
+
+
+## Version 0.3 prevalence and biology extension
+
+The extension adds a source-linked biology/concepts guide and a conditional predictive-value calculation using existing logistic cutoffs. All **24 tests** passed, including Bayes identities, recovery of observed predictive values from confusion counts, invalid prevalence/rates, absent-class handling, and undefined predictive-value serialization. A full rerun reproduced the existing model results; the new arithmetic step requires no retraining or threshold selection. Two JSON outputs and nine aggregate CSV tables passed numerical comparison, and all four figures were byte-identical across reproductions. The prevalence figure was visually checked.
+
+The new curves are point calculations under assumed stable sensitivity/specificity, not external validation or uncertainty intervals. Documentation and source links were reviewed against the original dataset, published methods, and official scikit-learn examples. Nothing in these checks establishes clinical utility or transportability.

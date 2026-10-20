@@ -24,6 +24,8 @@ from sklearn.model_selection import GridSearchCV, StratifiedKFold, train_test_sp
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 
+from .prevalence import write_prevalence_outputs
+
 SEED = 20261020
 C_VALUES = (0.01, 0.1, 1.0, 10.0)
 MODELS = ("logistic_regression", "random_forest", "prior_baseline")
@@ -277,7 +279,7 @@ def run(output_dir: Path):
     bins = [{"model": name, **row} for name in MODELS[:2]
             for row in calibration_bins(y[test], probability[name])]
     report = {
-        "project_version": "0.2.0", "seed": SEED,
+        "project_version": "0.3.0", "seed": SEED,
         "purpose": "Exploratory model-validation methods study; not clinical validation",
         "holdout_status": "Previously observed in version 0.1; descriptive replication, not fresh blind evidence",
         "dataset": "Wisconsin Diagnostic Breast Cancer, sklearn bundled copy",
@@ -305,6 +307,7 @@ def run(output_dir: Path):
     write_csv(output_dir / "threshold_selection.csv", cutoff_choices)
     write_csv(output_dir / "threshold_tuning_curves.csv", curves)
     write_csv(output_dir / "holdout_thresholds.csv", holdout_thresholds)
+    write_prevalence_outputs(holdout_thresholds, output_dir)
     write_csv(output_dir / "calibration_bins.csv", bins)
     write_csv(output_dir / "model_comparison.csv", [{"model": name, **m} for name, m in model_results.items()])
     draw_diagnostics(y[test], probability, bins, output_dir / "diagnostics.png")
@@ -340,7 +343,7 @@ def draw_diagnostics(y, probabilities, bins, target):
                 title="5 bins: pointwise Wilson intervals", xlim=(0, 1), ylim=(-0.02, 1.03))
     axes[1].legend(loc="lower right", fontsize=8)
     fig.suptitle(f"Descriptive replication · {len(y)} historical holdout records", fontsize=14)
-    fig.savefig(target, metadata={"Software": "cell-feature-model-validation 0.2.0"})
+    fig.savefig(target, metadata={"Software": "cell-feature-model-validation 0.3.0"})
     plt.close(fig)
 
 
@@ -356,7 +359,7 @@ def draw_nested(rows, target):
         ax.grid(axis="y", color="#dddddd", linewidth=0.6)
     fig.suptitle("Training-only nested CV: 4 outer folds × 2 repeats", fontsize=14)
     fig.supxlabel("Dots are correlated fold estimates; horizontal lines are descriptive means", fontsize=10)
-    fig.savefig(target, metadata={"Software": "cell-feature-model-validation 0.2.0"})
+    fig.savefig(target, metadata={"Software": "cell-feature-model-validation 0.3.0"})
     plt.close(fig)
 
 
@@ -375,5 +378,5 @@ def draw_thresholds(curves, selected, target):
                ylabel="Training OOF tuning loss per record", xlim=(0.04, 0.96))
         ax.legend(fontsize=8)
     fig.suptitle("Illustrative cutoff development · not clinical decision thresholds", fontsize=14)
-    fig.savefig(target, metadata={"Software": "cell-feature-model-validation 0.2.0"})
+    fig.savefig(target, metadata={"Software": "cell-feature-model-validation 0.3.0"})
     plt.close(fig)

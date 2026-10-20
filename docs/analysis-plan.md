@@ -41,3 +41,8 @@ The threshold study optimizes on cross-fitted probabilities averaged across repe
 ## Reproducibility record
 
 The data fingerprint and ordered training/holdout index fingerprints are saved in `metrics.json`. The historical holdout index hash is a constant in the source, so an accidental change fails instead of silently creating a more favorable split. All estimators and splitters use fixed seeds where randomness is involved. Library versions and selected parameter values are exported. Small floating-point differences across numerical libraries or platforms remain possible.
+
+
+## Version 0.3 conditional prevalence extension
+
+The new scenario calculation keeps the existing logistic cutoffs and their historical-holdout sensitivity/specificity fixed. It uses declared hypothetical positive-label fractions of 1%, 5%, 10%, 25%, and 50%. These are scenario inputs, not new estimates. No model or threshold is chosen again. The assumptions, equations, undefined-value handling, and limits are in [prevalence sensitivity](prevalence-sensitivity.md).

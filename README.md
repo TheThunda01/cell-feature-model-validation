@@ -4,6 +4,8 @@
 
 **New here? [Read the project background, purpose, and key themes](docs/project-context.md).**
 
+[Understand the sampled biology and prediction concepts](docs/biology-and-concepts.md) · [Explore the conditional prevalence scenarios](docs/prevalence-sensitivity.md).
+
 This project compares a scaled logistic regression, a small random forest, and a prior-only baseline on the Wisconsin Diagnostic Breast Cancer dataset. The input is 30 cell-image features across 569 records [1]. It is a biological-feature classification example, not a genomics dataset, clinical tool, or new cancer finding.
 
 The useful question is methodological: can we separate model selection, threshold selection, and performance assessment while making their remaining limitations visible? Version 0.2 adds repeated nested cross-validation, cross-fitted threshold development, uncertainty summaries, and a clear record of what has already been seen.
@@ -58,6 +60,10 @@ On the historical holdout, the lower logistic cutoff added a false positive with
 
 The calibration bars are pointwise Wilson intervals for observed bin fractions. They are not simultaneous uncertainty bands for the calibration function. The small sample, estimated probabilities, and data reuse all limit the conclusion.
 
+## What if the base rate changes?
+
+The added prevalence exercise holds the existing logistic cutoffs and historical sensitivity/specificity fixed, then calculates PPV and NPV at assumed positive-label fractions from 1% to 50%. These are mathematical scenarios with untested transportability assumptions, not new screening results or individual risk recalibration. [Read the generated report](results/prevalence_report.md) for the table and curves. No model is retrained and no cutoff is changed in this step.
+
 ## Files worth opening
 
 | File | What it tells you |
@@ -68,6 +74,7 @@ The calibration bars are pointwise Wilson intervals for observed bin fractions. 
 | `results/threshold_tuning_curves.csv` | Every candidate cutoff and its development tuning loss |
 | `results/holdout_thresholds.csv` | Descriptive historical-holdout results at those fixed cutoffs |
 | `results/calibration_bins.csv` | Bin counts, observed fractions, and pointwise intervals |
+| `results/prevalence_sensitivity.csv` | Conditional PPV/NPV at five assumed prevalences and the existing logistic cutoffs |
 | `results/metrics.json` | Data/split fingerprints, parameters, versions, metrics, and scoped bootstrap intervals |
 | `docs/version-0.1-results.json` | The earlier published results, preserved for transparency |
 

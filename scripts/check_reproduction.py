@@ -34,8 +34,10 @@ def scalar(value):
 
 def check(expected_dir, actual_dir):
     expected_dir, actual_dir = Path(expected_dir), Path(actual_dir)
-    equivalent(json.loads((expected_dir / "metrics.json").read_text()),
-               json.loads((actual_dir / "metrics.json").read_text()), "metrics.json")
+    json_files = sorted(expected_dir.glob("*.json"))
+    for file in json_files:
+        equivalent(json.loads(file.read_text()),
+                   json.loads((actual_dir / file.name).read_text()), file.name)
     files = sorted(expected_dir.glob("*.csv"))
     for file in files:
         with file.open(newline="") as stream:
@@ -43,7 +45,7 @@ def check(expected_dir, actual_dir):
         with (actual_dir / file.name).open(newline="") as stream:
             actual = [{k: scalar(v) for k, v in row.items()} for row in csv.DictReader(stream)]
         equivalent(expected, actual, file.name)
-    print(f"Reproduced metrics.json and {len(files)} aggregate CSV tables within numeric tolerance.")
+    print(f"Reproduced {len(json_files)} JSON outputs and {len(files)} aggregate CSV tables within numeric tolerance.")
 
 
 if __name__ == "__main__":
