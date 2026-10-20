@@ -5,6 +5,7 @@ must agree exactly. Images are deliberately left to visual review.
 """
 import argparse
 import csv
+import hashlib
 import json
 import math
 from pathlib import Path
@@ -32,12 +33,24 @@ def scalar(value):
         return value
 
 
+def checked_json(path):
+    """Verify byte provenance inside each run before comparing numeric results."""
+    value = json.loads(path.read_text())
+    if path.name == "prevalence_sensitivity.json":
+        source = path.parent / "holdout_thresholds.csv"
+        observed = hashlib.sha256(source.read_bytes()).hexdigest()
+        assert value.get("source_table_sha256") == observed, f"{path}: source-table fingerprint mismatch"
+        # Equivalent floats can have different CSV text across numerical runtimes.
+        # Each hash is checked above; CSV values are compared below with tolerance.
+        value = {key: item for key, item in value.items() if key != "source_table_sha256"}
+    return value
+
+
 def check(expected_dir, actual_dir):
     expected_dir, actual_dir = Path(expected_dir), Path(actual_dir)
     json_files = sorted(expected_dir.glob("*.json"))
     for file in json_files:
-        equivalent(json.loads(file.read_text()),
-                   json.loads((actual_dir / file.name).read_text()), file.name)
+        equivalent(checked_json(file), checked_json(actual_dir / file.name), file.name)
     files = sorted(expected_dir.glob("*.csv"))
     for file in files:
         with file.open(newline="") as stream:

@@ -1,5 +1,7 @@
 # Verification record
 
+The reproduction checker verifies each prevalence report's SHA-256 against the source CSV from the same run. It then compares numeric tables with the documented tolerance. Equivalent floating-point values can be serialized differently across numerical environments, so byte hashes from different runs are not required to match. A stale within-run fingerprint or a material numerical difference still fails the check.
+
 Version 0.2 was run locally on 2026-10-20 with Python 3.12 and the pinned dependency versions recorded in `results/metrics.json`.
 
 - All 14 unit tests passed. They cover the preserved split, label orientation, training-only scaler fitting, nested cross-fit exclusion, cutoff penalties and tie-breaking, probability input validation, tied calibration values, Wilson boundaries, and bootstrap behavior.
