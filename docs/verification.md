@@ -1,0 +1,11 @@
+# Verification record
+
+Version 0.2 was run locally on 2026-10-20 with Python 3.12 and the pinned dependency versions recorded in `results/metrics.json`.
+
+- All 14 unit tests passed. They cover the preserved split, label orientation, training-only scaler fitting, nested cross-fit exclusion, cutoff penalties and tie-breaking, probability input validation, tied calibration values, Wilson boundaries, and bootstrap behavior.
+- The complete study ran successfully in approximately 21 seconds in this environment.
+- A separate full run reproduced `metrics.json` and all eight aggregate CSV tables within the comparator's declared tolerance (relative `1e-8`, absolute `1e-10`).
+- All three PNGs were byte-identical between these two runs and were visually inspected for labels, overlap, and uncertainty presentation.
+- The starting GitHub commit was `6ddd8bbdfcee1a96f88c00fc82b45ebb14225ad1`; all 19 source/output blobs matched that version before this extension began. No historical holdout records were moved.
+
+This local verification does not certify the scientific validity of the data or clinical use. The GitHub Actions workflow includes tests, a complete rerun, and numerical output comparison, but its status for version 0.2 depends on running it after the upgrade is published.

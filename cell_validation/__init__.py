@@ -1,3 +1,3 @@
-"""A reproducible teaching example of model validation with cell-image features."""
+"""Reproducible model-validation methods on a small cell-image benchmark."""
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"

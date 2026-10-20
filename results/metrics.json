@@ -1,7 +1,8 @@
 {
-  "project_version": "0.1.0",
+  "project_version": "0.2.0",
   "seed": 20261020,
-  "purpose": "Educational internal holdout benchmark; not clinical validation",
+  "purpose": "Exploratory model-validation methods study; not clinical validation",
+  "holdout_status": "Previously observed in version 0.1; descriptive replication, not fresh blind evidence",
   "dataset": "Wisconsin Diagnostic Breast Cancer, sklearn bundled copy",
   "source_doi": "10.24432/C5DW2B",
   "data_sha256": "3019c221882c9c756a9b1c76da7ad72cf606ffe8e51791044aeaadeb33efbd12",
@@ -9,39 +10,158 @@
   "n_features": 30,
   "n_train": 455,
   "n_test": 114,
+  "train_indices_sha256": "38757020c95ab51ce1ce7ed9bab41bcb193ecb738d3cf42d86c087899e3b84ba",
+  "holdout_indices_sha256": "e2e7df67893e740c7f9279f5d40a05d00e985e5b1042f5238e686969e4f86385",
   "positive_label": "malignant",
-  "threshold": 0.5,
+  "fixed_threshold": 0.5,
   "training_malignant_count": 170,
   "test_malignant_count": 42,
-  "selected_C": 1.0,
-  "selection_metric": "five-fold training-only ROC AUC",
+  "nested_cv": {
+    "outer_splits": 4,
+    "repeats": 2,
+    "inner_splits": 3,
+    "summary_scope": "Descriptive distribution of correlated outer-fold estimates; SD is not a confidence interval",
+    "crossfit_scope": "Every training row is excluded from its own fitting and tuning; two predictions averaged for threshold development"
+  },
+  "final_training_selected_parameters": {
+    "logistic_regression": {
+      "model__C": 1.0
+    },
+    "random_forest": {
+      "model__max_depth": null,
+      "model__min_samples_leaf": 2
+    },
+    "prior_baseline": {}
+  },
+  "selection_metric": "ROC AUC; final 5-fold training-only selection",
+  "threshold_selection": {
+    "candidates": [
+      0.05,
+      0.1,
+      0.15,
+      0.2,
+      0.25,
+      0.3,
+      0.35,
+      0.4,
+      0.45,
+      0.5,
+      0.55,
+      0.6,
+      0.65,
+      0.7,
+      0.75,
+      0.8,
+      0.85,
+      0.9,
+      0.95
+    ],
+    "illustrative_fn_fp_cost_ratios": [
+      1.0,
+      2.0,
+      5.0
+    ],
+    "scope": "Training OOF tuning loss only; not clinical costs or independent performance"
+  },
   "models": {
     "logistic_regression": {
       "roc_auc": 0.9943783068783068,
       "balanced_accuracy": 0.9811507936507937,
       "brier_score": 0.017984011975729432,
+      "sensitivity": 0.9761904761904762,
+      "specificity": 0.9861111111111112,
       "true_negative": 71,
       "false_positive": 1,
       "false_negative": 1,
       "true_positive": 41
     },
+    "random_forest": {
+      "roc_auc": 0.994378306878307,
+      "balanced_accuracy": 0.9623015873015872,
+      "brier_score": 0.03115245317037634,
+      "sensitivity": 0.9523809523809523,
+      "specificity": 0.9722222222222222,
+      "true_negative": 70,
+      "false_positive": 2,
+      "false_negative": 2,
+      "true_positive": 40
+    },
     "prior_baseline": {
       "roc_auc": 0.5,
       "balanced_accuracy": 0.5,
       "brier_score": 0.23271407597607716,
+      "sensitivity": 0.0,
+      "specificity": 1.0,
       "true_negative": 72,
       "false_positive": 0,
       "false_negative": 42,
       "true_positive": 0
     }
   },
-  "logistic_conditional_test_auc_95_percentile_interval": {
-    "lower": 0.9807364162308781,
-    "upper": 1.0,
-    "valid_resamples": 2000,
-    "requested_resamples": 2000
+  "conditional_test_bootstrap_95_percentile_intervals": {
+    "logistic_regression": {
+      "roc_auc": {
+        "lower": 0.9807364162308783,
+        "upper": 1.0,
+        "valid_resamples": 1000,
+        "requested_resamples": 1000
+      },
+      "balanced_accuracy": {
+        "lower": 0.9489863141202427,
+        "upper": 1.0,
+        "valid_resamples": 1000,
+        "requested_resamples": 1000
+      },
+      "brier_score": {
+        "lower": 0.003692523031782528,
+        "upper": 0.03959500888387467,
+        "valid_resamples": 1000,
+        "requested_resamples": 1000
+      }
+    },
+    "random_forest": {
+      "roc_auc": {
+        "lower": 0.9829031385281385,
+        "upper": 1.0,
+        "valid_resamples": 1000,
+        "requested_resamples": 1000
+      },
+      "balanced_accuracy": {
+        "lower": 0.918830475080475,
+        "upper": 0.993421052631579,
+        "valid_resamples": 1000,
+        "requested_resamples": 1000
+      },
+      "brier_score": {
+        "lower": 0.016085305241961553,
+        "upper": 0.051060052166160684,
+        "valid_resamples": 1000,
+        "requested_resamples": 1000
+      }
+    },
+    "prior_baseline": {
+      "roc_auc": {
+        "lower": 0.5,
+        "upper": 0.5,
+        "valid_resamples": 1000,
+        "requested_resamples": 1000
+      },
+      "balanced_accuracy": {
+        "lower": 0.5,
+        "upper": 0.5,
+        "valid_resamples": 1000,
+        "requested_resamples": 1000
+      },
+      "brier_score": {
+        "lower": 0.21054326433158133,
+        "upper": 0.25710196878502256,
+        "valid_resamples": 1000,
+        "requested_resamples": 1000
+      }
+    }
   },
-  "interval_scope": "Test-row resampling only; excludes training and site uncertainty",
+  "interval_scope": "Fixed models/cutoffs, test-row sampling only; excludes training, selection, dataset reuse, and site uncertainty",
+  "calibration_interval_scope": "Pointwise Wilson intervals for bin event fractions; fixed model/bins, not simultaneous calibration bands",
   "versions": {
     "numpy": "2.3.5",
     "scipy": "1.17.0",
