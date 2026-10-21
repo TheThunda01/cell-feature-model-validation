@@ -1,0 +1,653 @@
+{
+  "review_date": "2026-10-20",
+  "scope": "Bibliographic and claim-level audit of substantive sources cited in authored documentation, provenance and literature synthesis. Frozen search records retain their historical screening evidence; excluded search hits are not implied to support project claims.",
+  "limits": [
+    "Source access is recorded per entry; abstract or metadata access is not full-text appraisal.",
+    "No new formal systematic review, duplicate screening, comprehensive supplement appraisal or independent biological validation was performed.",
+    "Existing data, metrics, licenses and frozen search logs were preserved."
+  ],
+  "references": [
+    {
+      "id": "pmid:16504092",
+      "source_type": "research_article",
+      "title": "Bias in error estimation when using cross-validation for model selection",
+      "authors": [
+        "Sudhir Varma",
+        "Richard Simon"
+      ],
+      "year": 2006,
+      "url": "https://doi.org/10.1186/1471-2105-7-91",
+      "doi": "10.1186/1471-2105-7-91",
+      "pmid": "16504092",
+      "volume": "7",
+      "issue": null,
+      "pages": "91",
+      "checked_on": "2026-10-20",
+      "access_level": "abstract",
+      "metadata_status": "verified",
+      "supported_claims": [
+        "Using the same CV results for model selection and error estimation can cause optimistic error estimates."
+      ],
+      "limitations": [
+        "Metadata and abstract rechecked in this editorial pass; any earlier full-text inspection is documented separately in frozen search records."
+      ],
+      "corrections": [
+        "Completed and standardized the bibliography, including verified journal coordinates and PMID; earlier narrative-only citations now have full entries where needed."
+      ],
+      "journal": "BMC Bioinformatics"
+    },
+    {
+      "id": "pmid:38626948",
+      "source_type": "research_article",
+      "title": "TRIPOD+AI statement: updated guidance for reporting clinical prediction models that use regression or machine learning methods",
+      "authors": [
+        "Gary S Collins",
+        "Karel G M Moons",
+        "Paula Dhiman",
+        "Richard D Riley",
+        "Andrew L Beam",
+        "Ben Van Calster",
+        "Marzyeh Ghassemi",
+        "Xiaoxuan Liu",
+        "Johannes B Reitsma",
+        "Maarten van Smeden",
+        "Anne-Laure Boulesteix",
+        "Jennifer Catherine Camaradou",
+        "Leo Anthony Celi",
+        "Spiros Denaxas",
+        "Alastair K Denniston",
+        "Ben Glocker",
+        "Robert M Golub",
+        "Hugh Harvey",
+        "Georg Heinze",
+        "Michael M Hoffman",
+        "Andr\u00e9 Pascal Kengne",
+        "Emily Lam",
+        "Naomi Lee",
+        "Elizabeth W Loder",
+        "Lena Maier-Hein",
+        "Bilal A Mateen",
+        "Melissa D McCradden",
+        "Lauren Oakden-Rayner",
+        "Johan Ordish",
+        "Richard Parnell"
+      ],
+      "year": 2024,
+      "url": "https://doi.org/10.1136/bmj-2023-078378",
+      "doi": "10.1136/bmj-2023-078378",
+      "pmid": "38626948",
+      "volume": "385",
+      "issue": null,
+      "pages": "e078378",
+      "checked_on": "2026-10-20",
+      "access_level": "abstract",
+      "metadata_status": "verified",
+      "supported_claims": [
+        "Transparent reporting of data roles, predictors, outcomes and model evaluation."
+      ],
+      "limitations": [
+        "Metadata and abstract rechecked in this editorial pass; any earlier full-text inspection is documented separately in frozen search records.",
+        "Reporting guideline, not certification of this project; original article distinguished from affiliation correction."
+      ],
+      "corrections": [
+        "Completed and standardized the bibliography, including verified journal coordinates and PMID; earlier narrative-only citations now have full entries where needed."
+      ],
+      "journal": "BMJ"
+    },
+    {
+      "id": "pmid:40127903",
+      "source_type": "research_article",
+      "title": "PROBAST+AI: an updated quality, risk of bias, and applicability assessment tool for prediction models using regression or artificial intelligence methods",
+      "authors": [
+        "Karel G M Moons",
+        "Johanna A A Damen",
+        "Tabea Kaul",
+        "Lotty Hooft",
+        "Constanza Andaur Navarro",
+        "Paula Dhiman",
+        "Andrew L Beam",
+        "Ben Van Calster",
+        "Leo Anthony Celi",
+        "Spiros Denaxas",
+        "Alastair K Denniston",
+        "Marzyeh Ghassemi",
+        "Georg Heinze",
+        "Andr\u00e9 Pascal Kengne",
+        "Lena Maier-Hein",
+        "Xiaoxuan Liu",
+        "Patricia Logullo",
+        "Melissa D McCradden",
+        "Nan Liu",
+        "Lauren Oakden-Rayner",
+        "Karandeep Singh",
+        "Daniel S Ting",
+        "Laure Wynants",
+        "Bada Yang",
+        "Johannes B Reitsma",
+        "Richard D Riley",
+        "Gary S Collins",
+        "Maarten van Smeden"
+      ],
+      "year": 2025,
+      "url": "https://doi.org/10.1136/bmj-2024-082505",
+      "doi": "10.1136/bmj-2024-082505",
+      "pmid": "40127903",
+      "volume": "388",
+      "issue": null,
+      "pages": "e082505",
+      "checked_on": "2026-10-20",
+      "access_level": "abstract",
+      "metadata_status": "verified",
+      "supported_claims": [
+        "Appraising participant, predictor, outcome and analysis domains and applicability."
+      ],
+      "limitations": [
+        "Metadata and abstract rechecked in this editorial pass; any earlier full-text inspection is documented separately in frozen search records.",
+        "Formal PROBAST+AI appraisal not completed."
+      ],
+      "corrections": [
+        "Completed and standardized the bibliography, including verified journal coordinates and PMID; earlier narrative-only citations now have full entries where needed."
+      ],
+      "journal": "BMJ"
+    },
+    {
+      "id": "pmid:31842878",
+      "source_type": "research_article",
+      "title": "Calibration: the Achilles heel of predictive analytics",
+      "authors": [
+        "Ben Van Calster",
+        "David J McLernon",
+        "Maarten van Smeden",
+        "Laure Wynants",
+        "Ewout W Steyerberg",
+        "Topic Group \u2018Evaluating diagnostic tests and prediction models\u2019 of the STRATOS initiative"
+      ],
+      "year": 2019,
+      "url": "https://doi.org/10.1186/s12916-019-1466-7",
+      "doi": "10.1186/s12916-019-1466-7",
+      "pmid": "31842878",
+      "volume": "17",
+      "issue": "1",
+      "pages": "230",
+      "checked_on": "2026-10-20",
+      "access_level": "abstract",
+      "metadata_status": "verified",
+      "supported_claims": [
+        "Discrimination and calibration differ, and calibration assessment matters."
+      ],
+      "limitations": [
+        "Metadata and abstract rechecked in this editorial pass; any earlier full-text inspection is documented separately in frozen search records.",
+        "Methods guidance; not evidence that this benchmark is calibrated in other settings."
+      ],
+      "corrections": [
+        "Completed and standardized the bibliography, including verified journal coordinates and PMID; earlier narrative-only citations now have full entries where needed."
+      ],
+      "journal": "BMC Medicine"
+    },
+    {
+      "id": "pmid:26835674",
+      "source_type": "research_article",
+      "title": "Analysis of Predictive Values Based on Individual Risk Factors in Multi-Modality Trials",
+      "authors": [
+        "Katharina Lange",
+        "Edgar Brunner"
+      ],
+      "year": 2013,
+      "url": "https://doi.org/10.3390/diagnostics3010192",
+      "doi": "10.3390/diagnostics3010192",
+      "pmid": "26835674",
+      "volume": "3",
+      "issue": "1",
+      "pages": "192-209",
+      "checked_on": "2026-10-20",
+      "access_level": "abstract",
+      "metadata_status": "verified",
+      "supported_claims": [
+        "Bayes equations connect sensitivity, specificity, prevalence and predictive values."
+      ],
+      "limitations": [
+        "Metadata and abstract rechecked in this editorial pass; any earlier full-text inspection is documented separately in frozen search records.",
+        "The repository does not implement the paper\u2019s full modality/trial methods."
+      ],
+      "corrections": [
+        "Completed and standardized the bibliography, including verified journal coordinates and PMID; earlier narrative-only citations now have full entries where needed."
+      ],
+      "journal": "Diagnostics"
+    },
+    {
+      "id": "pmid:37460126",
+      "source_type": "research_article",
+      "title": "The association of sensitivity and specificity with disease prevalence: analysis of 6909 studies of diagnostic test accuracy",
+      "authors": [
+        "M Hassan Murad",
+        "Lifeng Lin",
+        "Haitao Chu",
+        "Bashar Hasan",
+        "Reem A Alsibai",
+        "Alzhraa S Abbas",
+        "Reem A Mustafa",
+        "Zhen Wang"
+      ],
+      "year": 2023,
+      "url": "https://doi.org/10.1503/cmaj.221802",
+      "doi": "10.1503/cmaj.221802",
+      "pmid": "37460126",
+      "volume": "195",
+      "issue": "27",
+      "pages": "E925-E931",
+      "checked_on": "2026-10-20",
+      "access_level": "abstract",
+      "metadata_status": "verified",
+      "supported_claims": [
+        "Sensitivity/specificity estimates were associated with prevalence across diagnostic studies."
+      ],
+      "limitations": [
+        "Metadata and abstract rechecked in this editorial pass; any earlier full-text inspection is documented separately in frozen search records.",
+        "Meta-epidemiological association is not a causal effect of prevalence alone and is not quantified for this classifier."
+      ],
+      "corrections": [
+        "Completed and standardized the bibliography, including verified journal coordinates and PMID; earlier narrative-only citations now have full entries where needed."
+      ],
+      "journal": "CMAJ : Canadian Medical Association journal = journal de l'Association medicale canadienne"
+    },
+    {
+      "id": "pmid:35387683",
+      "source_type": "research_article",
+      "title": "Quantitative prediction error analysis to investigate predictive performance under predictor measurement heterogeneity at model implementation",
+      "authors": [
+        "Kim Luijken",
+        "Jia Song",
+        "Rolf H H Groenwold"
+      ],
+      "year": 2022,
+      "url": "https://doi.org/10.1186/s41512-022-00121-1",
+      "doi": "10.1186/s41512-022-00121-1",
+      "pmid": "35387683",
+      "volume": "6",
+      "issue": "1",
+      "pages": "7",
+      "checked_on": "2026-10-20",
+      "access_level": "abstract",
+      "metadata_status": "verified",
+      "supported_claims": [
+        "Predictor measurement differences can affect implementation performance."
+      ],
+      "limitations": [
+        "Metadata and abstract rechecked in this editorial pass; any earlier full-text inspection is documented separately in frozen search records.",
+        "Time-to-event simulation/applied setting differs from this classifier."
+      ],
+      "corrections": [
+        "Completed and standardized the bibliography, including verified journal coordinates and PMID; earlier narrative-only citations now have full entries where needed."
+      ],
+      "journal": "Diagnostic and Prognostic Research"
+    },
+    {
+      "id": "pmid:36471238",
+      "source_type": "review",
+      "title": "External validation of existing dementia prediction models on observational health data",
+      "authors": [
+        "Luis H John",
+        "Jan A Kors",
+        "Egill A Fridgeirsson",
+        "Jenna M Reps",
+        "Peter R Rijnbeek"
+      ],
+      "year": 2022,
+      "url": "https://doi.org/10.1186/s12874-022-01793-5",
+      "doi": "10.1186/s12874-022-01793-5",
+      "pmid": "36471238",
+      "volume": "22",
+      "issue": "1",
+      "pages": "311",
+      "checked_on": "2026-10-20",
+      "access_level": "abstract",
+      "metadata_status": "verified",
+      "supported_claims": [
+        "Recovering predictors and model specifications can obstruct external validation."
+      ],
+      "limitations": [
+        "Metadata and abstract rechecked in this editorial pass; any earlier full-text inspection is documented separately in frozen search records.",
+        "Dementia models differ from the breast-feature dataset; no performance transferred."
+      ],
+      "corrections": [
+        "Completed and standardized the bibliography, including verified journal coordinates and PMID; earlier narrative-only citations now have full entries where needed."
+      ],
+      "journal": "BMC Medical Research Methodology"
+    },
+    {
+      "id": "breiman2001",
+      "source_type": "research_article",
+      "title": "Random forests",
+      "authors": [
+        "Leo Breiman"
+      ],
+      "year": 2001,
+      "url": "https://doi.org/10.1023/A:1010933404324",
+      "checked_on": "2026-10-20",
+      "access_level": "abstract",
+      "metadata_status": "verified",
+      "supported_claims": [
+        "Random-forest model-family background."
+      ],
+      "limitations": [
+        "Publisher abstract and bibliographic page inspected; full text is subscription access."
+      ],
+      "corrections": [],
+      "volume": "45",
+      "issue": "1",
+      "pages": "5\u201332",
+      "doi": "10.1023/A:1010933404324"
+    },
+    {
+      "id": "wilson1927",
+      "source_type": "research_article",
+      "title": "Probable inference, the law of succession, and statistical inference",
+      "authors": [
+        "Edwin B. Wilson"
+      ],
+      "year": 1927,
+      "url": "https://doi.org/10.1080/01621459.1927.10502953",
+      "checked_on": "2026-10-20",
+      "access_level": "metadata_only",
+      "metadata_status": "verified",
+      "supported_claims": [
+        "Historical source for score intervals; equation implementation checked separately in code."
+      ],
+      "limitations": [
+        "Publisher returned 403. JSTOR verified title, author, volume, issue and pages; full article was not inspected in this pass."
+      ],
+      "corrections": [],
+      "volume": "22",
+      "issue": "158",
+      "pages": "209\u2013212",
+      "doi": "10.1080/01621459.1927.10502953",
+      "alternate_urls": [
+        "https://www.jstor.org/stable/2276774"
+      ]
+    },
+    {
+      "id": "street1993",
+      "source_type": "conference_paper",
+      "title": "Nuclear feature extraction for breast tumor diagnosis",
+      "authors": [
+        "W. N. Street",
+        "W. H. Wolberg",
+        "O. L. Mangasarian"
+      ],
+      "year": 1993,
+      "url": "https://doi.org/10.1117/12.148698",
+      "checked_on": "2026-10-20",
+      "access_level": "metadata_only",
+      "metadata_status": "verified",
+      "supported_claims": [
+        "Historical feature-extraction source identified by UCI and the bundled dataset description."
+      ],
+      "limitations": [
+        "Publisher search metadata and official dataset attribution inspected; full publisher page timed out. Measurement descriptions rely on official dataset documentation rather than uninspected article passages."
+      ],
+      "corrections": [],
+      "volume": "1905",
+      "pages": "861\u2013870",
+      "doi": "10.1117/12.148698"
+    },
+    {
+      "id": "lipton2018",
+      "source_type": "conference_paper",
+      "title": "Detecting and Correcting for Label Shift with Black Box Predictors",
+      "authors": [
+        "Zachary Lipton",
+        "Yu-Xiang Wang",
+        "Alexander Smola"
+      ],
+      "year": 2018,
+      "url": "https://proceedings.mlr.press/v80/lipton18a.html",
+      "checked_on": "2026-10-20",
+      "access_level": "abstract",
+      "metadata_status": "verified",
+      "supported_claims": [
+        "Label shift holds feature distributions within classes fixed while class proportions change."
+      ],
+      "limitations": [
+        "Publisher abstract and full citation inspected. Its estimation/correction methods are not implemented here."
+      ],
+      "corrections": [],
+      "volume": "80",
+      "pages": "3122\u20133130"
+    },
+    {
+      "id": "uci-wdbc",
+      "source_type": "dataset",
+      "title": "Breast Cancer Wisconsin (Diagnostic)",
+      "authors": [
+        "W. Wolberg",
+        "O. Mangasarian",
+        "N. Street",
+        "W. Street"
+      ],
+      "year": 1993,
+      "url": "https://doi.org/10.24432/C5DW2B",
+      "checked_on": "2026-10-20",
+      "access_level": "official_documentation",
+      "metadata_status": "verified",
+      "supported_claims": [
+        "Dataset origin, nuclear-image measurement definitions, 569 records, 30 features, binary diagnoses and CC BY 4.0 terms."
+      ],
+      "limitations": [
+        "Citation year is 1993; UCI separately records donation on 1995-10-31. Neither is a new observation date."
+      ],
+      "corrections": [],
+      "alternate_urls": [
+        "https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic"
+      ]
+    },
+    {
+      "id": "sklearn-datasets.load_breast_cancer",
+      "source_type": "official_documentation",
+      "title": "datasets.load_breast_cancer",
+      "authors": [
+        "scikit-learn developers"
+      ],
+      "year": null,
+      "url": "https://scikit-learn.org/1.8/modules/generated/sklearn.datasets.load_breast_cancer.html",
+      "checked_on": "2026-10-20",
+      "access_level": "official_documentation",
+      "metadata_status": "verified",
+      "supported_claims": [
+        "Bundled data or estimator behavior corresponding to the pinned runtime."
+      ],
+      "limitations": [
+        "Documents source definitions or software behavior; does not independently validate this implementation."
+      ],
+      "corrections": [],
+      "version": "1.8.0"
+    },
+    {
+      "id": "sklearn-model_selection.GridSearchCV",
+      "source_type": "official_documentation",
+      "title": "model_selection.GridSearchCV",
+      "authors": [
+        "scikit-learn developers"
+      ],
+      "year": null,
+      "url": "https://scikit-learn.org/1.8/modules/generated/sklearn.model_selection.GridSearchCV.html",
+      "checked_on": "2026-10-20",
+      "access_level": "official_documentation",
+      "metadata_status": "verified",
+      "supported_claims": [
+        "Bundled data or estimator behavior corresponding to the pinned runtime."
+      ],
+      "limitations": [
+        "Documents source definitions or software behavior; does not independently validate this implementation."
+      ],
+      "corrections": [],
+      "version": "1.8.0"
+    },
+    {
+      "id": "sklearn-ensemble.RandomForestClassifier",
+      "source_type": "official_documentation",
+      "title": "ensemble.RandomForestClassifier",
+      "authors": [
+        "scikit-learn developers"
+      ],
+      "year": null,
+      "url": "https://scikit-learn.org/1.8/modules/generated/sklearn.ensemble.RandomForestClassifier.html",
+      "checked_on": "2026-10-20",
+      "access_level": "official_documentation",
+      "metadata_status": "verified",
+      "supported_claims": [
+        "Bundled data or estimator behavior corresponding to the pinned runtime."
+      ],
+      "limitations": [
+        "Documents source definitions or software behavior; does not independently validate this implementation."
+      ],
+      "corrections": [],
+      "version": "1.8.0"
+    },
+    {
+      "id": "sklearn-leakage",
+      "source_type": "official_documentation",
+      "title": "Common pitfalls: data leakage",
+      "authors": [
+        "scikit-learn developers"
+      ],
+      "year": null,
+      "url": "https://scikit-learn.org/1.8/common_pitfalls.html#data-leakage",
+      "checked_on": "2026-10-20",
+      "access_level": "official_documentation",
+      "metadata_status": "verified",
+      "supported_claims": [
+        "Preprocessing and tuning need appropriate separation from evaluation."
+      ],
+      "limitations": [
+        "Documents source definitions or software behavior; does not independently validate this implementation."
+      ],
+      "corrections": [],
+      "version": "1.8"
+    },
+    {
+      "id": "sklearn-data-description",
+      "source_type": "official_documentation",
+      "title": "Breast cancer dataset description",
+      "authors": [
+        "scikit-learn developers"
+      ],
+      "year": null,
+      "url": "https://scikit-learn.org/1.8/datasets/toy_dataset.html#breast-cancer-dataset",
+      "checked_on": "2026-10-20",
+      "access_level": "official_documentation",
+      "metadata_status": "verified",
+      "supported_claims": [
+        "Mean, standard-error and worst nuclear feature summaries; target coding."
+      ],
+      "limitations": [
+        "Documents source definitions or software behavior; does not independently validate this implementation."
+      ],
+      "corrections": [],
+      "version": "1.8.0; installed DESCR inspected"
+    },
+    {
+      "id": "sklearn-validation-source",
+      "source_type": "software",
+      "title": "Input validation source",
+      "authors": [
+        "scikit-learn developers"
+      ],
+      "year": null,
+      "url": "https://github.com/scikit-learn/scikit-learn/blob/106573971c28d82a1b5579aea7a23eecd80355f0/sklearn/utils/validation.py",
+      "checked_on": "2026-10-20",
+      "access_level": "official_documentation",
+      "metadata_status": "verified",
+      "supported_claims": [
+        "Feature name/count consistency checks are distinct from measurement-semantic compatibility."
+      ],
+      "limitations": [
+        "Relevant source lines inspected through GitHub; development commit differs from runtime 1.8.0. No code copied."
+      ],
+      "corrections": [],
+      "version": "106573971c28d82a1b5579aea7a23eecd80355f0"
+    },
+    {
+      "id": "sklearn-calibration-example",
+      "source_type": "software",
+      "title": "Probability Calibration curves",
+      "authors": [
+        "scikit-learn developers"
+      ],
+      "year": null,
+      "url": "https://github.com/scikit-learn/scikit-learn/blob/main/examples/calibration/plot_calibration_curve.py",
+      "checked_on": "2026-10-20",
+      "access_level": "official_documentation",
+      "metadata_status": "verified",
+      "supported_claims": [
+        "Separate inspection of score calibration and prediction behavior."
+      ],
+      "limitations": [
+        "Moving main-branch example used for context, not copied or reproduced."
+      ],
+      "corrections": [],
+      "version": "main read 2026-10-20; blob 7db1e41ccbc37532f28c9d7fe0890a3841b8f6d3"
+    },
+    {
+      "id": "sklearn-threshold-example",
+      "source_type": "software",
+      "title": "Cost-sensitive learning example",
+      "authors": [
+        "scikit-learn developers"
+      ],
+      "year": null,
+      "url": "https://github.com/scikit-learn/scikit-learn/blob/main/examples/model_selection/plot_cost_sensitive_learning.py",
+      "checked_on": "2026-10-20",
+      "access_level": "official_documentation",
+      "metadata_status": "verified",
+      "supported_claims": [
+        "Threshold decisions and score quality answer different questions."
+      ],
+      "limitations": [
+        "Uses TunedThresholdClassifierCV; this repository uses an independent small-grid study."
+      ],
+      "corrections": [],
+      "version": "main read 2026-10-20; blob 57d6cbe7eb2e6be03672397060bc372c3b74f025"
+    },
+    {
+      "id": "python-csv",
+      "source_type": "official_documentation",
+      "title": "CSV File Reading and Writing",
+      "authors": [
+        "Python Software Foundation"
+      ],
+      "year": null,
+      "url": "https://docs.python.org/3.12/library/csv.html",
+      "checked_on": "2026-10-20",
+      "access_level": "official_documentation",
+      "metadata_status": "verified",
+      "supported_claims": [
+        "Strict CSV parser behavior and text/row handling."
+      ],
+      "limitations": [
+        "Documents source definitions or software behavior; does not independently validate this implementation."
+      ],
+      "corrections": [],
+      "version": "3.12.15"
+    },
+    {
+      "id": "cc-by-4",
+      "source_type": "official_documentation",
+      "title": "Creative Commons Attribution 4.0 International",
+      "authors": [
+        "Creative Commons"
+      ],
+      "year": null,
+      "url": "https://creativecommons.org/licenses/by/4.0/",
+      "checked_on": "2026-10-20",
+      "access_level": "official_documentation",
+      "metadata_status": "verified",
+      "supported_claims": [
+        "UCI dataset attribution/reuse terms."
+      ],
+      "limitations": [
+        "License is specified on the inspected UCI dataset page; no legal determination beyond preserving those terms."
+      ],
+      "corrections": []
+    }
+  ]
+}

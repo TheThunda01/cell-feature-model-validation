@@ -1,5 +1,7 @@
 # Reporting and risk-of-bias questions
 
+Terminology: [glossary](glossary.md). Scientific and operational choices: [assumptions](assumptions.md).
+
 TRIPOD+AI (2024) addresses transparent prediction-model reporting. PROBAST+AI (2025) addresses quality, risk of bias, and applicability. They serve different purposes. This short map borrows their concerns as prompts for an educational project; it does not reproduce their complete checklists or claim a formal assessment.
 
 | Question | Evidence in this repository | What remains unresolved |
@@ -13,4 +15,4 @@ TRIPOD+AI (2024) addresses transparent prediction-model reporting. PROBAST+AI (2
 | Is applicability addressed? | Explicit cautions about data reuse, site changes, population differences, and absence of deployment claims. | No meaningful site, subgroup, temporal, workflow, or prospective impact assessment. |
 | What can be reused? | Code license, dataset attribution, contribution instructions, reproducible aggregate output. | Open availability does not establish validity, safety, or utility in a new setting. |
 
-See Collins et al., [TRIPOD+AI](https://doi.org/10.1136/bmj-2023-078378), and Moons et al., [PROBAST+AI](https://doi.org/10.1136/bmj-2024-082505), for the actual statements and their supporting materials. A genuine clinical prediction study would need a task-specific protocol and a complete, appropriately conducted assessment.
+See [Collins et al. (2024), TRIPOD+AI](https://doi.org/10.1136/bmj-2023-078378), and [Moons et al. (2025), PROBAST+AI](https://doi.org/10.1136/bmj-2024-082505), for the actual statements and their supporting materials. A genuine clinical prediction study would need a task-specific protocol and a complete, appropriately conducted assessment.

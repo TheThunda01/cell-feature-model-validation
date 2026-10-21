@@ -1,22 +1,24 @@
 # Methods, explained from the data outward
 
+Terminology: [glossary](glossary.md). Scientific and operational choices: [assumptions](assumptions.md).
+
 ## The three data roles
 
 The historical split contains 455 development records and 114 holdout records. The latter are unchanged from version 0.1, and were previously inspected. They remain outside the computational development path, but their final evaluation is a descriptive replication rather than a new blind test.
 
 Within the development data, an **outer** split creates a temporary training partition and a temporary evaluation partition. An **inner** cross-validation search uses only that outer training partition to choose settings. The winning pipeline is refit on the outer training partition, then predicts the outer evaluation records. This repeats across four folds and two seeded repetitions. All 455 development records are evaluated once per repetition.
 
-This arrangement distinguishes parameter selection from outer assessment. Varma and Simon [1] demonstrated optimism when tuning and performance estimation use the same cross-validation results. Their work motivates the separation; it does not guarantee that this project's small internal dataset is representative of clinical practice.
+This arrangement distinguishes parameter selection from outer assessment. [Varma and Simon (2006)](https://doi.org/10.1186/1471-2105-7-91) demonstrated optimism when tuning and performance estimation use the same cross-validation results. Their work motivates the separation; it does not guarantee that this project's small internal dataset is representative of clinical practice.
 
 ## Models and parameter searches
 
-The logistic pipeline contains `StandardScaler` and L2-regularized `LogisticRegression`. Scaling is fitted anew inside every inner training fold, and the selected pipeline is refitted only on the relevant outer training rows. The search tries `C` values 0.01, 0.1, 1, and 10; lower `C` means stronger regularization in this implementation. All features are retained.
+The logistic pipeline combines `StandardScaler` (training-mean/standard-deviation scaling) with `LogisticRegression` and an L2 penalty on squared coefficient size. Scaling is fitted anew inside every inner training fold, and the selected pipeline is refitted only on the relevant outer training rows. The search tries `C` values 0.01, 0.1, 1, and 10; lower `C` means stronger regularization in this implementation. All features are retained.
 
-The comparator is a random forest [2] with 100 trees, square-root feature subsampling, and a fixed seed. It tries maximum depth 3 versus no explicit depth limit and minimum leaf size 2 versus 8. Trees receive the numeric features directly: scaling would not add a useful role to this implementation. This limited search is an inspectable modeling contrast, not a comprehensive algorithm competition.
+The comparator is a random forest ([Breiman, 2001](https://doi.org/10.1023/A:1010933404324)) with 100 trees, square-root feature subsampling, and a fixed seed. It tries maximum depth 3 versus no explicit depth limit and minimum leaf size 2 versus 8. Trees receive the numeric features directly: scaling would not add a useful role to this implementation. This limited search is an inspectable modeling contrast, not a comprehensive algorithm competition.
 
 A prior baseline learns the malignant fraction in each outer training partition and assigns that probability to every evaluation record. It uses no feature values. With the observed class balance and cutoff 0.5, it classifies every record as benign; balanced accuracy and AUC are therefore 0.5.
 
-All searches maximize inner ROC AUC. After the nested analysis, each learned model is tuned again with five folds over all 455 development records and refitted. Both families are retained; the script does not select a winner based on the historical holdout.
+All searches maximize inner area under the receiver operating characteristic curve (ROC AUC), a ranking metric. After the nested analysis, each learned model is tuned again with five folds over all 455 development records and refitted. Both families are retained; the script does not select a winner based on the historical holdout.
 
 ## What the nested-CV summaries mean
 
@@ -40,14 +42,14 @@ Although the predictions are cross-fitted, their labels are reused to choose the
 
 Malignant is always the positive class. AUC measures ranking, while balanced accuracy averages sensitivity and specificity at the stated cutoff. Brier score is mean squared probability error. AUC is insensitive to the classification cutoff, whereas sensitivity and specificity change with it. Brier score combines multiple aspects of probability prediction and is not a stand-alone calibration test.
 
-For the final pipelines at cutoff 0.5, 1,000 ordinary bootstrap samples are drawn with replacement from the historical-holdout records. The 2.5th and 97.5th percentiles are saved for AUC, balanced accuracy, and Brier score. Any resample lacking a class is discarded for consistency across the metrics. Predictions remain fixed throughout. These approximate intervals describe test-row sampling conditional on the fitted model; they exclude refitting, tuning, selection of this dataset, previous inspection, and geographic or temporal changes. A degenerate interval for the prior baseline's AUC or balanced accuracy is a mathematical property of that baseline, not proof of certainty about practice.
+For the final pipelines at cutoff 0.5, 1,000 ordinary bootstrap samples (resampling records with replacement) are drawn with replacement from the historical-holdout records. The 2.5th and 97.5th percentiles are saved for AUC, balanced accuracy, and Brier score. Any resample lacking a class is discarded for consistency across the metrics. Predictions remain fixed throughout. These approximate intervals describe test-row sampling conditional on the fitted model; they exclude refitting, tuning, selection of this dataset, previous inspection, and geographic or temporal changes. A degenerate interval for the prior baseline's AUC or balanced accuracy is a mathematical property of that baseline, not proof of certainty about practice.
 
-Calibration is summarized in five quantile bins separately for each learned model. Tied predicted values stay together, so fewer than five populated bins are possible. Each row records its size, malignant count, mean probability, and observed fraction. The vertical bars are 95% Wilson score intervals [3] for each observed fraction, conditional on the fixed model and binning. They are pointwise, not simultaneous bands; treating observations as independent is an assumption. They do not capture uncertainty in the fitted probabilities or chosen bin edges. A few dozen observations per bin cannot establish stable calibration. No recalibration is fitted here.
+Calibration is summarized in five quantile bins separately for each learned model. Tied predicted values stay together, so fewer than five populated bins are possible. Each row records its size, malignant count, mean probability, and observed fraction. The vertical bars are 95% Wilson score intervals ([Wilson, 1927](https://doi.org/10.1080/01621459.1927.10502953)) for each observed fraction, conditional on the fixed model and binning. They are pointwise, not simultaneous bands; treating observations as independent is an assumption. They do not capture uncertainty in the fitted probabilities or chosen bin edges. A few dozen observations per bin cannot establish stable calibration. No recalibration is fitted here.
 
 ## Limits that matter to interpretation
 
 This is a small and repeatedly used historical dataset. Features are image-derived summaries, not independent molecular mechanisms. The current copy does not provide the information needed here for meaningful subgroup, site, or temporal validation. No result establishes equity, clinical utility, benefit to patients, or suitability for deployment. Neither model identifies causal processes.
 
-The open code and scoped uncertainty help readers inspect the work. They do not repair limitations of the available sample. The project's reporting map uses TRIPOD+AI [4] and PROBAST+AI [5] as guidance, without claiming formal compliance or a completed risk-of-bias assessment. Van Calster and colleagues [6] explain why strong discrimination should not substitute for calibration assessment.
+The open code and scoped uncertainty help readers inspect the work. They do not repair limitations of the available sample. The project's reporting map uses [TRIPOD+AI (Collins et al., 2024)](https://doi.org/10.1136/bmj-2023-078378) and [PROBAST+AI (Moons et al., 2025)](https://doi.org/10.1136/bmj-2024-082505) as guidance, without claiming formal compliance or a completed risk-of-bias assessment. [Van Calster et al. (2019)](https://doi.org/10.1186/s12916-019-1466-7) explain why strong discrimination should not substitute for calibration assessment.
 
-References are listed in [references.md](references.md). The bracket numbers in this document follow its numbered list.
+References are listed in [references.md](references.md). Citations use author and year throughout the authored documentation.

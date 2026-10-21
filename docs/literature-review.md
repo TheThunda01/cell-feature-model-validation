@@ -1,5 +1,7 @@
 # Rapid evidence and practice review — 2026-10-20
 
+Terminology: [glossary](glossary.md). Scientific and operational choices: [assumptions](assumptions.md).
+
 ## Question and scope
 
 What should be checked and recorded before a candidate feature file could support a future independent evaluation of this educational classifier? The review focuses on transparent predictor definitions, dataset independence, and evaluation boundaries. It does not establish clinical utility or add a new validation cohort.
@@ -56,13 +58,15 @@ Added a 30-feature template generator, optional `--feature-map` inspection and `
 
 ## Remaining work
 
-An independently sourced cohort with compatible acquisition and outcome definitions would be a substantial separate study. Before that, prioritize explicit feature mapping, a prespecified evaluation protocol, and reviewed approximate-overlap diagnostics. [Acceptance criteria](practical-use.md#next-improvements) keep those tasks distinct from the implemented parser.
+An independently sourced cohort with compatible acquisition and outcome definitions would be a substantial separate study. The mapping declaration contract is implemented. Before a new cohort study, prioritize independent review of those mappings, a prespecified evaluation protocol, and reviewed approximate-overlap diagnostics. [Acceptance criteria](practical-use.md#next-improvements) keep those tasks distinct from the implemented parser.
 
 ### Round 2 status
 
 The prior mapping-template task is implemented as a declaration contract. Independent assessment of those declarations, protocol metadata, and a suitable external cohort remain separate work. [Practical-use acceptance criteria](practical-use.md#next-improvements) now reflect those remaining tasks.
 
 ## Limits of this review
+
+The [editorial reference audit](reference-audit.json) separately records the current bibliographic/claim recheck. Historical search and partial-full-text counts below describe the original logged review and remain unchanged.
 
 This is a bounded single-reviewer search, not a complete systematic review or formal risk-of-bias assessment. English query terms, title restrictions, relevance sorting, and a duplicate pagination result limit coverage. No independent screening or comprehensive supplement extraction was performed. Full texts were partial and only inspected sections support the table. Existing foundational references remain in [references.md](references.md), but were not counted as newly searched publications. Official source inspection supplies implementation context, not evidence of clinical readiness.
 

@@ -1,5 +1,7 @@
 # Why this project exists
 
+Terminology: [glossary](glossary.md). Scientific and operational choices: [assumptions](assumptions.md).
+
 A model can produce an impressive score while leaving important questions unanswered: how were its settings chosen, how much did the result depend on the split, and what happens when the cost of different mistakes changes? This project makes those questions visible in a small biological-feature example that a reader can run and inspect.
 
 ## Background and rationale

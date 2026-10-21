@@ -1,5 +1,7 @@
 # Data provenance
 
+Terminology: [glossary](glossary.md). Scientific and operational choices: [assumptions](assumptions.md).
+
 The workflow calls `sklearn.datasets.load_breast_cancer()` from the pinned scikit-learn package. It uses the bundled numeric feature matrix and diagnosis labels, without fetching another copy or including the source patient identifier. No raw data file is added to this repository.
 
 The upstream source is Wolberg, W., Mangasarian, O., Street, N., & Street, W. (1993), *Breast Cancer Wisconsin (Diagnostic)*, UCI Machine Learning Repository, [doi:10.24432/C5DW2B](https://doi.org/10.24432/C5DW2B). UCI currently distributes it under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Source and license pages were checked on 2026-10-20. The source describes features computed from digitized fine-needle aspirate images. It should not be described as sequencing or gene-expression data.

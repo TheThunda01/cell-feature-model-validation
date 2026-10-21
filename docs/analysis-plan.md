@@ -1,5 +1,7 @@
 # Analysis decisions and data roles
 
+Terminology: [glossary](glossary.md). Scientific and operational choices: [assumptions](assumptions.md).
+
 This is a versioned educational methods investigation, not a prospectively registered clinical study. The version-0.2 choices below were written into the code for this extension after the version-0.1 benchmark had already been published. We therefore cannot honestly describe the original holdout as unknown.
 
 ## Questions
@@ -41,7 +43,6 @@ The threshold study optimizes on cross-fitted probabilities averaged across repe
 ## Reproducibility record
 
 The data fingerprint and ordered training/holdout index fingerprints are saved in `metrics.json`. The historical holdout index hash is a constant in the source, so an accidental change fails instead of silently creating a more favorable split. All estimators and splitters use fixed seeds where randomness is involved. Library versions and selected parameter values are exported. Small floating-point differences across numerical libraries or platforms remain possible.
-
 
 ## Version 0.3 conditional prevalence extension
 

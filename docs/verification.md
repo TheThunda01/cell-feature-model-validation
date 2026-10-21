@@ -1,5 +1,7 @@
 # Verification record
 
+Terminology: [glossary](glossary.md). Scientific and operational choices: [assumptions](assumptions.md).
+
 The reproduction checker verifies each prevalence report's SHA-256 against the source CSV from the same run. It then compares numeric tables with the documented tolerance. Equivalent floating-point values can be serialized differently across numerical environments, so byte hashes from different runs are not required to match. A stale within-run fingerprint or a material numerical difference still fails the check.
 
 Version 0.2 was run locally on 2026-10-20 with Python 3.12 and the pinned dependency versions recorded in `results/metrics.json`.
@@ -12,7 +14,6 @@ Version 0.2 was run locally on 2026-10-20 with Python 3.12 and the pinned depend
 
 This local verification does not certify the scientific validity of the data or clinical use. The GitHub Actions workflow includes tests, a complete rerun, and numerical output comparison, but its status for version 0.2 depends on running it after the upgrade is published.
 
-
 ## Version 0.3 prevalence and biology extension
 
 The extension adds a source-linked biology/concepts guide and a conditional predictive-value calculation using existing logistic cutoffs. All **24 tests** passed, including Bayes identities, recovery of observed predictive values from confusion counts, invalid prevalence/rates, absent-class handling, and undefined predictive-value serialization. A full rerun reproduced the existing model results; the new arithmetic step requires no retraining or threshold selection. Two JSON outputs and nine aggregate CSV tables passed numerical comparison, and all four figures were byte-identical across reproductions. The prevalence figure was visually checked.
@@ -21,7 +22,7 @@ The new curves are point calculations under assumed stable sensitivity/specifici
 
 ## Input-contract advancement — 2026-10-20
 
-The candidate-file preflight adds nine tests, bringing this checkout to **36 passing tests**. Checks cover exact feature names, reordered columns, invalid numeric values, strict label orientation, required metadata declarations, repeated feature vectors, and exact overlap with benchmark rows. Malformed quoting is rejected by strict CSV parsing, and a CLI regression verifies exit status 2 without a traceback or partial report. An intentionally reused benchmark vector is detected even when metadata declares independence. The three-row parser example is synthetic and supplies no new biological evidence.
+The input-contract work brought the historical suite from 24 to **36 passing tests**; this count includes preflight, parser and reproduction checks. The subsequent mapping work brought the current suite to 45. Checks cover exact feature names, reordered columns, invalid numeric values, strict label orientation, required metadata declarations, repeated feature vectors, and exact overlap with benchmark rows. Malformed quoting is rejected by strict CSV parsing, and a CLI regression verifies exit status 2 without a traceback or partial report. An intentionally reused benchmark vector is detected even when metadata declares independence. The three-row parser example is synthetic and supplies no new biological evidence.
 
 A full run in a separate output directory reproduced both JSON reports and all nine aggregate CSV tables at relative tolerance `1e-8`, absolute tolerance `1e-10`. Every pre-existing data/result file remained byte-for-byte unchanged against the advancement baseline. No models, cutoffs, or historical-holdout assignments changed. The local Markdown path check found no missing linked files. The new preflight command is included in CI, but this local run does not claim a new hosted CI result.
 

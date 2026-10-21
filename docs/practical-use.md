@@ -1,5 +1,7 @@
 # Practical use
 
+Terminology: [glossary](glossary.md). Scientific and operational choices: [assumptions](assumptions.md).
+
 ## Where this fits
 
 The main study teaches validation on a familiar public feature dataset. The new preflight command answers an earlier question: does a candidate file meet an explicit feature and provenance contract before anyone discusses applying a model? It does not evaluate a model on that file. The historical 114-record holdout remains previously observed, and no new external cohort is added.

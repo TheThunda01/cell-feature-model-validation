@@ -8,9 +8,9 @@
 
 [Understand the sampled biology and prediction concepts](docs/biology-and-concepts.md) · [Explore the conditional prevalence scenarios](docs/prevalence-sensitivity.md).
 
-This project compares a scaled logistic regression, a small random forest, and a prior-only baseline on the Wisconsin Diagnostic Breast Cancer dataset. The input is 30 cell-image features across 569 records [1]. It is a biological-feature classification example, not a genomics dataset, clinical tool, or new cancer finding.
+This project compares a scaled logistic regression, a small random forest, and a prior-only baseline on the Wisconsin Diagnostic Breast Cancer dataset. The input is 30 cell-image features (numerical summaries of nuclear appearance) across 569 records ([Wolberg et al., 1993](https://doi.org/10.24432/C5DW2B)). It is a biological-feature classification example, not a genomics dataset, clinical tool, or new cancer finding.
 
-The useful question is methodological: can we separate model selection, threshold selection, and performance assessment while making their remaining limitations visible? Version 0.2 adds repeated nested cross-validation, cross-fitted threshold development, uncertainty summaries, and a clear record of what has already been seen.
+The useful question is methodological: can we separate model selection, threshold selection, and performance assessment while making their remaining limitations visible? Version 0.2 adds repeated nested cross-validation (tuning inside each training partition), cross-fitted threshold development (using predictions made without the corresponding record), uncertainty summaries, and a clear record of what has already been seen.
 
 **The 114-record holdout was inspected in version 0.1.** We preserve it and keep it out of all computation used to develop models and thresholds. Its new results are descriptive replication, not fresh blind validation. The main new investigation uses the other 455 records.
 
@@ -70,7 +70,7 @@ Read [the mapping guide](docs/feature-mapping.md) before filling a template. The
 
 ![Training-only nested cross-validation results](results/nested_cv.png)
 
-In the checked-in run, logistic regression's mean outer-fold AUC was **0.9928**, compared with **0.9886** for the forest and **0.5000** for the prior baseline. Mean Brier scores were **0.0230**, **0.0356**, and **0.2340**, respectively. The dots are overlapping fold estimates, not eight independent experiments. We do not turn their standard deviation into a confidence interval or claim that this small difference establishes model superiority.
+In the checked-in run, logistic regression's mean outer-fold area under the receiver operating characteristic curve (ROC AUC, a ranking measure) was **0.9928**, compared with **0.9886** for the forest and **0.5000** for the prior baseline. Mean Brier scores (squared probability errors) were **0.0230**, **0.0356**, and **0.2340**, respectively. The dots are overlapping fold estimates, not eight independent experiments. We do not turn their standard deviation into a confidence interval or claim that this small difference establishes model superiority.
 
 ![Threshold development using cross-fitted training predictions](results/threshold_sensitivity.png)
 
@@ -80,21 +80,23 @@ On the historical holdout, the lower logistic cutoff added a false positive with
 
 ![Previously observed holdout ROC and calibration summaries](results/diagnostics.png)
 
-The calibration bars are pointwise Wilson intervals for observed bin fractions. They are not simultaneous uncertainty bands for the calibration function. The small sample, estimated probabilities, and data reuse all limit the conclusion.
+The calibration bars are pointwise Wilson intervals (uncertainty intervals for each observed fraction separately) for observed bin fractions. They are not simultaneous uncertainty bands for the calibration function. The small sample, estimated probabilities, and data reuse all limit the conclusion.
 
 ### What if the base rate changes?
 
-The added prevalence exercise holds the existing logistic cutoffs and historical sensitivity/specificity fixed, then calculates PPV and NPV at assumed positive-label fractions from 1% to 50%. These are mathematical scenarios with untested transportability assumptions, not new screening results or individual risk recalibration. [Read the generated report](results/prevalence_report.md) for the table and curves. No model is retrained and no cutoff is changed in this step.
+The added prevalence exercise holds the existing logistic cutoffs and historical sensitivity/specificity fixed, then calculates positive and negative predictive values (PPV and NPV: the fraction of positive/negative calls with the corresponding reference label) at assumed positive-label fractions from 1% to 50%. These are mathematical scenarios with untested transportability assumptions, not new screening results or individual risk recalibration. [Read the generated report](results/prevalence_report.md) for the table and curves. No model is retrained and no cutoff is changed in this step.
 
 ## Practical use and limitations
 
-A familiar public benchmark can teach a workflow, but cannot establish clinical utility, fairness across populations, or performance under different acquisition practices. Neither associations nor forest splits identify biological mechanisms. Discrimination and calibration are different properties [5].
+A familiar public benchmark can teach a workflow, but cannot establish clinical utility, fairness across populations, or performance under different acquisition practices. Neither associations nor forest splits identify biological mechanisms. Discrimination (ranking) and calibration (agreement between predicted probabilities and observed frequencies) are different properties ([Van Calster et al., 2019](https://doi.org/10.1186/s12916-019-1466-7)).
 
 The [practical guide](docs/practical-use.md) separates implemented input checks, operator responsibilities, and future external evaluation. Exact overlap can expose reused benchmark vectors; a negative check cannot establish independence. Passing the schema check does not establish equivalent acquisition procedures, feature units, or label ascertainment.
 
 Mapping checks are optional unless `--require-feature-map` is used. Even a complete declaration record reports `semantic_compatibility_established: false`, while the historical holdout keeps its previously observed status.
 
 ## Documentation
+
+[Glossary](docs/glossary.md) · [Assumptions and justifications](docs/assumptions.md) · [Reference audit](docs/reference-audit.json) · [Review record, 20 October 2026](docs/review-2026-10-20.md)
 
 | Guide | What it covers |
 | --- | --- |
@@ -126,18 +128,10 @@ Mapping checks are optional unless `--require-feature-map` is used. Even a compl
 | `results/metrics.json` | Data/split fingerprints, parameters, versions, metrics, and scoped bootstrap intervals |
 | `docs/version-0.1-results.json` | The earlier published results, preserved for transparency |
 
-[The analysis plan](docs/analysis-plan.md) records the choices. [Methods](docs/methods.md) explains the mathematics and separation of data roles. [The reporting map](docs/reporting-map.md) draws practical lessons from TRIPOD+AI [3] and PROBAST+AI [4] while identifying gaps. It is not a claim of formal guideline compliance or low risk of bias.
+[The analysis plan](docs/analysis-plan.md) records the choices. [Methods](docs/methods.md) explains the mathematics and separation of data roles. [The reporting map](docs/reporting-map.md) draws practical lessons from [TRIPOD+AI (Collins et al., 2024)](https://doi.org/10.1136/bmj-2023-078378), a reporting guideline, and [PROBAST+AI (Moons et al., 2025)](https://doi.org/10.1136/bmj-2024-082505), a risk-of-bias/applicability tool while identifying gaps. It is not a claim of formal guideline compliance or low risk of bias.
 
 ## Development and reuse
 
 The code is MIT-licensed. The upstream dataset is CC BY 4.0 and has separate attribution requirements; see [data provenance](docs/data-provenance.md). This project was developed with AI assistance. Automated checks support reproducibility; they do not replace scientific review. Small, documented contributions are welcome through [the contribution guide](CONTRIBUTING.md).
 
-### References
-
-1. Wolberg et al. *Breast Cancer Wisconsin (Diagnostic)* [Dataset]. [doi:10.24432/C5DW2B](https://doi.org/10.24432/C5DW2B).
-2. Varma & Simon (2006). Bias in error estimation when using cross-validation for model selection. [doi:10.1186/1471-2105-7-91](https://doi.org/10.1186/1471-2105-7-91).
-3. Collins et al. (2024). TRIPOD+AI statement. [doi:10.1136/bmj-2023-078378](https://doi.org/10.1136/bmj-2023-078378).
-4. Moons et al. (2025). PROBAST+AI. [doi:10.1136/bmj-2024-082505](https://doi.org/10.1136/bmj-2024-082505).
-5. Van Calster et al. (2019). Calibration: the Achilles heel of predictive analytics. [doi:10.1186/s12916-019-1466-7](https://doi.org/10.1186/s12916-019-1466-7).
-
-Full citations and implementation references are in [references](docs/references.md).
+Full author–year citations, software versions and the scope of each source are in [references](docs/references.md) and the [reference audit](docs/reference-audit.json).

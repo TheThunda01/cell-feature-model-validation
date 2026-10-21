@@ -1,5 +1,7 @@
 # Feature-definition mapping
 
+Terminology: [glossary](glossary.md). Scientific and operational choices: [assumptions](assumptions.md).
+
 A feature called `mean radius` is only useful across datasets if its measurement and summary procedures mean compatible things. The [UCI description](https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic) identifies ten nuclear-image properties. The bundled scikit-learn description distinguishes each property's mean, standard error, and largest-value summary. Those names and definitions guide review; they do not establish compatible units or acquisition in another dataset.
 
 The new map records what an operator knows about a candidate file. It does not execute transformations or approve an external evaluation. Research on [predictor measurement heterogeneity](https://pubmed.ncbi.nlm.nih.gov/35387683/) illustrates why differing measurement procedures can matter even when predictors share a name; its simulation results are not performance estimates for this classifier.

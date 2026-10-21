@@ -1,5 +1,7 @@
 # What the current run shows
 
+Terminology: [glossary](glossary.md). Scientific and operational choices: [assumptions](assumptions.md).
+
 These observations describe version 0.2's fixed analysis. They are not new biomedical discoveries. The source tables are checked into `results/`, and the commands in the README reproduce them.
 
 ## Split-to-split variation is visible

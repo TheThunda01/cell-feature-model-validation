@@ -1,5 +1,7 @@
 # Conditional prevalence sensitivity: equations and scope
 
+Terminology: [glossary](glossary.md). Scientific and operational choices: [assumptions](assumptions.md).
+
 This extension performs arithmetic on previously saved operating points. It trains no model and selects no threshold. The existing logistic cutoffs come from the development-only threshold study; their sensitivity and specificity are recomputed from the historical-holdout confusion counts. Duplicate cutoff choices for different penalties are grouped.
 
 ## Calculation
