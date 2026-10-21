@@ -15,7 +15,7 @@ This is a versioned educational methods investigation, not a prospectively regis
 | Decision | Choice and reason |
 | --- | --- |
 | Data copy | The pinned scikit-learn bundled WDBC matrix; no additional datasets |
-| Outcome encoding | Malignant = 1, benign = 0; stated explicitly to prevent reversed interpretation |
+| Outcome encoding | $`\text{malignant}=1`$, $`\text{benign}=0`$; stated explicitly to prevent reversed interpretation |
 | Historical holdout | Preserve the original 114 records; verify its index hash before running |
 | Development partition | The other 455 records only |
 | Primary model | Logistic regression, retained from version 0.1; L2-regularized, scaled inside each fit |
@@ -27,7 +27,7 @@ This is a versioned educational methods investigation, not a prospectively regis
 | Forest grid | 100 trees; depth 3 or unrestricted; minimum leaf size 2 or 8; square-root feature subsampling |
 | Final refit | Five-fold tuning of each family using all development records; no champion chosen from holdout scores |
 | Threshold grid | 0.05 through 0.95 in steps of 0.05 |
-| Error penalties | FN:FP = 1:1, 2:1, 5:1; arbitrary examples, not elicited patient preferences or clinical costs |
+| Error penalties | $`\mathrm{FN}:\mathrm{FP}=1:1,\;2:1,\;5:1`$; arbitrary examples, not elicited patient preferences or clinical costs |
 | Tie-breaking | Minimum tuning loss; then closest to 0.5; then larger threshold |
 | Uncertainty | 1,000 ordinary test-row bootstrap resamples for fixed-threshold metrics; pointwise binomial intervals for calibration bins |
 | Exports | Aggregate results and fingerprints; no patient IDs, per-record predictions, or fitted model |

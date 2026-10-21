@@ -6,18 +6,22 @@ This extension performs arithmetic on previously saved operating points. It trai
 
 ## Calculation
 
-Let `pi` be the assumed fraction with the malignant reference label, `Se` the fixed sensitivity, and `Sp` the fixed specificity. In a hypothetical unit population:
+Let $`\pi`$ be the assumed fraction with the malignant reference label, $`\mathrm{Se}`$ the fixed sensitivity, and $`\mathrm{Sp}`$ the fixed specificity. In a hypothetical unit population:
 
-- True-positive share = `pi × Se`
-- False-negative share = `pi × (1 − Se)`
-- True-negative share = `(1 − pi) × Sp`
-- False-positive share = `(1 − pi) × (1 − Sp)`
+- True-positive share: $`\pi\,\mathrm{Se}`$
+- False-negative share: $`\pi(1-\mathrm{Se})`$
+- True-negative share: $`(1-\pi)\mathrm{Sp}`$
+- False-positive share: $`(1-\pi)(1-\mathrm{Sp})`$
 
 The Bayes identities are:
 
-`PPV = pi × Se / [pi × Se + (1 − pi) × (1 − Sp)]`
+```math
+\mathrm{PPV}=\frac{\pi\,\mathrm{Se}}{\pi\,\mathrm{Se}+(1-\pi)(1-\mathrm{Sp})}
+```
 
-`NPV = (1 − pi) × Sp / [(1 − pi) × Sp + pi × (1 − Se)]`
+```math
+\mathrm{NPV}=\frac{(1-\pi)\mathrm{Sp}}{(1-\pi)\mathrm{Sp}+\pi(1-\mathrm{Se})}
+```
 
 If a denominator is zero, that predictive value is undefined and is represented as `null` in JSON or a blank CSV field. It is not assigned zero. Unknown sensitivity or specificity also cannot support this calculation, so the program rejects it explicitly. These equations are presented in [Lange and Brunner (2013)](https://doi.org/10.3390/diagnostics3010192).
 

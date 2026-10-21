@@ -30,9 +30,11 @@ Folds share training records, and repeated splits reuse evaluation records. They
 
 For each development record, the code retains its two outer-fold predictions, each made by a pipeline tuned without that record. Their mean forms one cross-fitted development probability. No historical-holdout record participates.
 
-For candidate threshold `t`, a record is labeled positive when `p >= t`. The illustrative loss is:
+For candidate threshold $`t`$, a record is labeled positive when $`p\ge t`$. The illustrative loss is:
 
-`(FN penalty × number of false negatives + number of false positives) / number of records`
+```math
+\frac{\text{FN penalty}\times\text{number of false negatives}+\text{number of false positives}}{\text{number of records}}
+```
 
 The false-positive penalty is fixed to one arbitrary unit. We repeat the calculation with false-negative penalties 1, 2, and 5. A fixed grid from 0.05 to 0.95 is searched. Ties favor a threshold closest to 0.5, then the larger one. These declared penalties do not estimate the costs of any clinical action. They also depend on the class mix in these data.
 
