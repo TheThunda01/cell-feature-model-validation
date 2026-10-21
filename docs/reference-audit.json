@@ -61,7 +61,7 @@
         "Hugh Harvey",
         "Georg Heinze",
         "Michael M Hoffman",
-        "Andr\u00e9 Pascal Kengne",
+        "André Pascal Kengne",
         "Emily Lam",
         "Naomi Lee",
         "Elizabeth W Loder",
@@ -112,7 +112,7 @@
         "Alastair K Denniston",
         "Marzyeh Ghassemi",
         "Georg Heinze",
-        "Andr\u00e9 Pascal Kengne",
+        "André Pascal Kengne",
         "Lena Maier-Hein",
         "Xiaoxuan Liu",
         "Patricia Logullo",
@@ -160,7 +160,7 @@
         "Maarten van Smeden",
         "Laure Wynants",
         "Ewout W Steyerberg",
-        "Topic Group \u2018Evaluating diagnostic tests and prediction models\u2019 of the STRATOS initiative"
+        "Topic Group ‘Evaluating diagnostic tests and prediction models’ of the STRATOS initiative"
       ],
       "year": 2019,
       "url": "https://doi.org/10.1186/s12916-019-1466-7",
@@ -207,7 +207,7 @@
       ],
       "limitations": [
         "Metadata and abstract rechecked in this editorial pass; any earlier full-text inspection is documented separately in frozen search records.",
-        "The repository does not implement the paper\u2019s full modality/trial methods."
+        "The repository does not implement the paper’s full modality/trial methods."
       ],
       "corrections": [
         "Completed and standardized the bibliography, including verified journal coordinates and PMID; earlier narrative-only citations now have full entries where needed."
@@ -335,7 +335,7 @@
       "corrections": [],
       "volume": "45",
       "issue": "1",
-      "pages": "5\u201332",
+      "pages": "5–32",
       "doi": "10.1023/A:1010933404324"
     },
     {
@@ -359,7 +359,7 @@
       "corrections": [],
       "volume": "22",
       "issue": "158",
-      "pages": "209\u2013212",
+      "pages": "209–212",
       "doi": "10.1080/01621459.1927.10502953",
       "alternate_urls": [
         "https://www.jstor.org/stable/2276774"
@@ -387,7 +387,7 @@
       ],
       "corrections": [],
       "volume": "1905",
-      "pages": "861\u2013870",
+      "pages": "861–870",
       "doi": "10.1117/12.148698"
     },
     {
@@ -412,7 +412,7 @@
       ],
       "corrections": [],
       "volume": "80",
-      "pages": "3122\u20133130"
+      "pages": "3122–3130"
     },
     {
       "id": "uci-wdbc",
@@ -648,6 +648,53 @@
         "License is specified on the inspected UCI dataset page; no legal determination beyond preserving those terms."
       ],
       "corrections": []
+    }
+  ],
+  "follow_up_reviews": [
+    {
+      "review_date": "2026-10-21",
+      "scope": "Targeted maintenance and scientific-language recheck; earlier source-by-source dates and historical search logs retained.",
+      "source_checks": [
+        {
+          "reference_id": "uci-wdbc",
+          "access_level_this_review": "official_documentation",
+          "checked": "Live UCI metadata confirms 569 rows, 30 image-derived features, diagnostic labels, source citation and CC BY 4.0."
+        },
+        {
+          "reference_id": "sklearn-data-description",
+          "access_level_this_review": "official_documentation",
+          "checked": "Version 1.8 dataset description confirms mean, standard-error and mean-of-three-largest summaries; phenotype is not genomic."
+        },
+        {
+          "reference_id": "pmid:16504092",
+          "access_level_this_review": "abstract",
+          "checked": "Current PubMed abstract supports separating tuning from performance assessment; not external validation of this project."
+        },
+        {
+          "reference_id": "pmid:31842878",
+          "access_level_this_review": "abstract",
+          "checked": "Current PubMed abstract distinguishes calibration assessment and sample-size limitations."
+        },
+        {
+          "reference_id": "pmid:26835674",
+          "access_level_this_review": "abstract",
+          "checked": "Current PubMed abstract supports predictive-value dependence on prior probability; formulas independently checked against code."
+        },
+        {
+          "reference_id": "pmid:37460126",
+          "access_level_this_review": "abstract",
+          "checked": "Current PubMed abstract describes associations between prevalence and estimated sensitivity/specificity, not a causal prevalence effect."
+        },
+        {
+          "reference_id": "lipton2018",
+          "access_level_this_review": "abstract",
+          "checked": "Official PMLR abstract defines label shift as changing p(y) with p(x|y) held fixed; this project does not implement BBSE."
+        }
+      ],
+      "limits": [
+        "This follow-up is not a new systematic literature search or comprehensive supplementary-material appraisal.",
+        "Local numerical reproduction verifies calculations, not biological generalization."
+      ]
     }
   ]
 }

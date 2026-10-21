@@ -98,6 +98,8 @@ Mapping checks are optional unless `--require-feature-map` is used. Even a compl
 
 [Glossary](docs/glossary.md) · [Assumptions and justifications](docs/assumptions.md) · [Reference audit](docs/reference-audit.json) · [Review record, 20 October 2026](docs/review-2026-10-20.md)
 
+[Maintenance review, 21 October 2026](docs/review-2026-10-21.md) records the current documentation, source and reproduction checks.
+
 | Guide | What it covers |
 | --- | --- |
 | [Project context](docs/project-context.md) | Background, question, and key themes |
