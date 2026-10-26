@@ -38,15 +38,11 @@ source .venv/bin/activate
 # Windows PowerShell instead: .venv\Scripts\Activate.ps1
 python -m pip install -r requirements.txt
 python -m unittest discover -s tests -v
-python -m cell_validation --output-dir results
-```
-
-The default workload uses small parameter grids and 100 trees per forest. The complete study took about 21 seconds in the tested environment; timing will vary with hardware. A separate output directory lets you compare a reproduction with the checked-in files:
-
-```sh
 python -m cell_validation --output-dir reproduced-results
 python scripts/check_reproduction.py reproduced-results
 ```
+
+The default workload uses small parameter grids and 100 trees per forest. The complete study took about 21 seconds in the tested environment; timing will vary with hardware. The commands write aggregate tables, JSON reports, and four figures to `reproduced-results/`, then compare the numerical results with the checked-in files in `results/`. This keeps the reference outputs available for comparison.
 
 Try the input contract on explicitly synthetic feature values:
 
