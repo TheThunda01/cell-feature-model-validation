@@ -2,7 +2,7 @@
 
 Terminology: [glossary](glossary.md). Scientific and operational choices: [assumptions](assumptions.md).
 
-A model can produce an impressive score while leaving important questions unanswered: how were its settings chosen, how much did the result depend on the split, and what happens when the cost of different mistakes changes? This project makes those questions visible in a small biological-feature example that a reader can run and inspect.
+A high model score can conceal choices that shape the result. How were the settings chosen? How much did the score depend on the data split? What changes when different mistakes carry different costs? This project examines those questions through a small biological-feature example that readers can run and inspect.
 
 ## Background and rationale
 
@@ -12,7 +12,7 @@ The design follows a central lesson from [Varma and Simon](https://doi.org/10.11
 
 ## What it does
 
-The workflow compares logistic regression, a random forest, and a simple baseline. Repeated nested cross-validation keeps model tuning inside each training partition. It records fold-level results, examines probability calibration, and explores thresholds selected from cross-fitted development predictions under explicitly hypothetical error penalties. Tests, dependency versions, and saved outputs make the calculations reproducible.
+The workflow compares logistic regression, a random forest, and a simple baseline. Repeated nested cross-validation keeps model tuning inside each training partition and records the evaluation results for each fold. The analysis also examines probability calibration and selects thresholds from cross-fitted development predictions using hypothetical error penalties. Tests, dependency versions, and saved outputs help readers reproduce the calculations.
 
 The original 114-record holdout was already inspected in version 0.1. It remains excluded from computational development, but its later results are labeled **descriptive replication**, not new blind validation. That history is part of the evidence.
 

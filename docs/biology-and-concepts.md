@@ -8,7 +8,7 @@ This project connects a small cytology dataset with a larger question: what does
 
 The Wisconsin Diagnostic Breast Cancer dataset describes cell nuclei in digitized images of fine-needle aspirates (material sampled using a thin needle) from breast masses. Its creators used image processing to summarize nuclear size, shape, and texture. The [original feature-extraction work](https://doi.org/10.1117/12.148698) explains this measurement approach; [UCI](https://doi.org/10.24432/C5DW2B) provides the archived data and attribution.
 
-Our analysis begins with the resulting numerical table. It does not examine a new specimen, process a microscope image, or inspect tissue architecture. A record is an image-derived summary, not a single nucleus. The distinction also limits what can be checked: the code cannot revisit the original boundary selections or independently assess a specimen's diagnostic interpretation.
+The analysis starts with the numerical table, where each record summarizes an image rather than a single nucleus. It does not examine a new specimen, process a microscope image, or inspect tissue architecture. The code therefore cannot revisit the original boundary selections or independently assess a specimen's diagnostic interpretation.
 
 Ten measured properties were summarized in three ways, producing 30 features. They include radius, perimeter, area, smoothness, compactness, concavity, concave points, symmetry, texture, and a boundary-complexity measure called fractal dimension. In the [bundled dataset documentation](https://scikit-learn.org/1.8/datasets/toy_dataset.html#breast-cancer-dataset), each property has a mean, a standard-error summary, and a “worst” summary based on the three largest values. “Worst” is a historical feature name, not a prognosis. The stored standard-error features are not uncertainty intervals for this model's predictions.
 
@@ -16,7 +16,7 @@ Ten measured properties were summarized in three ways, producing 30 features. Th
 
 Morphology describes appearance and geometry. Texture here summarizes image intensity variation; it is not a gene-expression measurement. Several size and shape features are related, so 30 columns should not be mistaken for 30 independent biological processes. A model can exploit correlations among them without explaining why a mass developed or how it will behave.
 
-Preparation, image acquisition, selection of nuclei, and boundary measurement are parts of the measurement process. A change in those steps could change feature distributions; this repository does not measure those effects. It also contains no mutation, transcriptomic, treatment-response, or longitudinal outcome data. Interpreting a coefficient or tree split as a causal cancer pathway would go beyond what was observed.
+Sample preparation, image acquisition, selection of nuclei, and boundary measurement can affect the recorded features. This repository does not measure the effects of changing those steps. It also contains no mutation, transcriptomic, treatment-response, or longitudinal outcome data. A coefficient or tree split therefore cannot establish a causal cancer pathway.
 
 ## What do the labels mean?
 
@@ -34,7 +34,7 @@ A **threshold** converts a continuous score into a class call. Lowering it usual
 
 ## Why base rates matter
 
-The new [prevalence exercise](prevalence-sensitivity.md) changes an assumed positive-label fraction while holding sensitivity and specificity fixed at each existing cutoff. Bayes' rule then changes PPV and NPV. These are conditional calculations, not newly observed outcomes.
+The [prevalence exercise](prevalence-sensitivity.md) uses Bayes' rule to calculate how PPV and NPV change with the assumed positive-label fraction. Sensitivity and specificity stay fixed at each existing cutoff. These are conditional calculations, not newly observed outcomes.
 
 This resembles one consequence of **label shift**, where class proportions change while feature distributions within each class stay stable. [Lipton et al. (2018)](https://proceedings.mlr.press/v80/lipton18a.html) formalize that assumption. We do not detect label shift or estimate a target population's prevalence. More importantly, fixed operating rates need not hold when case mix or measurement changes. [Murad et al. (2023)](https://doi.org/10.1503/cmaj.221802) found associations between prevalence and estimated sensitivity/specificity across diagnostic studies; their analysis cautions against assuming universal transportability.
 

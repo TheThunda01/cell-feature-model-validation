@@ -4,7 +4,7 @@ Terminology: [glossary](glossary.md). Scientific and operational choices: [assum
 
 ## The three data roles
 
-The historical split contains 455 development records and 114 holdout records. The latter are unchanged from version 0.1, and were previously inspected. They remain outside the computational development path, but their final evaluation is a descriptive replication rather than a new blind test.
+The historical split contains 455 development records and 114 holdout records. Version 0.1 already inspected the holdout, which remains unchanged. The code excludes those records from model and threshold development, but their final evaluation is descriptive replication rather than a new blind test.
 
 Within the development data, an **outer** split creates a temporary training partition and a temporary evaluation partition. An **inner** cross-validation search uses only that outer training partition to choose settings. The winning pipeline is refit on the outer training partition, then predicts the outer evaluation records. This repeats across four folds and two seeded repetitions. All 455 development records are evaluated once per repetition.
 
@@ -38,13 +38,17 @@ For candidate threshold $`t`$, a record is labeled positive when $`p\ge t`$. The
 
 The false-positive penalty is fixed to one arbitrary unit. We repeat the calculation with false-negative penalties 1, 2, and 5. A fixed grid from 0.05 to 0.95 is searched. Ties favor a threshold closest to 0.5, then the larger one. These declared penalties do not estimate the costs of any clinical action. They also depend on the class mix in these data.
 
-Although the predictions are cross-fitted, their labels are reused to choose the cutoff. The minimized development loss is consequently **tuning loss**. It should not be read as unbiased performance. Averaged cross-fitted probabilities also come from several smaller fitted models and need not share the same distribution as probabilities from the final full-development fit. To evaluate threshold selection itself, a future extension would need another selection step entirely inside each outer training partition. This version instead shows fixed-0.5 outer metrics and describes the training-selected cutoffs on the historical holdout.
+The minimized development loss is **tuning loss**, not an unbiased performance estimate: the code reuses the development labels to choose the cutoff, even though the predictions are cross-fitted. The averaged probabilities also come from several models fitted on smaller samples and need not share the probability distribution of the final model fitted on all development data.
+
+Evaluating threshold selection itself would require another selection step entirely inside each outer training partition. This version instead shows fixed-0.5 outer metrics and describes the training-selected cutoffs on the historical holdout.
 
 ## Metrics and uncertainty
 
 Malignant is always the positive class. AUC measures ranking, while balanced accuracy averages sensitivity and specificity at the stated cutoff. Brier score is mean squared probability error. AUC is insensitive to the classification cutoff, whereas sensitivity and specificity change with it. Brier score combines multiple aspects of probability prediction and is not a stand-alone calibration test.
 
-For the final pipelines at cutoff 0.5, 1,000 ordinary bootstrap samples (resampling records with replacement) are drawn with replacement from the historical-holdout records. The 2.5th and 97.5th percentiles are saved for AUC, balanced accuracy, and Brier score. Any resample lacking a class is discarded for consistency across the metrics. Predictions remain fixed throughout. These approximate intervals describe test-row sampling conditional on the fitted model; they exclude refitting, tuning, selection of this dataset, previous inspection, and geographic or temporal changes. A degenerate interval for the prior baseline's AUC or balanced accuracy is a mathematical property of that baseline, not proof of certainty about practice.
+For the final pipelines at cutoff 0.5, the code draws 1,000 ordinary bootstrap samples by resampling historical-holdout records with replacement. It saves the 2.5th and 97.5th percentiles for AUC, balanced accuracy, and Brier score and discards any resample lacking a class for consistency across metrics. Predictions remain fixed throughout.
+
+These approximate intervals describe test-row sampling conditional on the fitted model. They exclude refitting, tuning, selection of this dataset, previous inspection, and geographic or temporal changes. A degenerate interval for the prior baseline's AUC or balanced accuracy is a mathematical property of that baseline, not proof of certainty about practice.
 
 Calibration is summarized in five quantile bins separately for each learned model. Tied predicted values stay together, so fewer than five populated bins are possible. Each row records its size, malignant count, mean probability, and observed fraction. The vertical bars are 95% Wilson score intervals ([Wilson, 1927](https://doi.org/10.1080/01621459.1927.10502953)) for each observed fraction, conditional on the fixed model and binning. They are pointwise, not simultaneous bands; treating observations as independent is an assumption. They do not capture uncertainty in the fitted probabilities or chosen bin edges. A few dozen observations per bin cannot establish stable calibration. No recalibration is fitted here.
 

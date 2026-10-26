@@ -1,6 +1,6 @@
 # Cell-feature model validation
 
-**An inspectable study of what changes when model evaluation goes beyond one train/test score.**
+**A study of how model tuning, data splits, and decision thresholds affect evaluation.**
 
 ## Why this project
 
@@ -10,7 +10,7 @@
 
 This project compares a scaled logistic regression, a small random forest, and a prior-only baseline on the Wisconsin Diagnostic Breast Cancer dataset. The input is 30 cell-image features (numerical summaries of nuclear appearance) across 569 records ([Wolberg et al., 1993](https://doi.org/10.24432/C5DW2B)). It is a biological-feature classification example, not a genomics dataset, clinical tool, or new cancer finding.
 
-The useful question is methodological: can we separate model selection, threshold selection, and performance assessment while making their remaining limitations visible? Version 0.2 adds repeated nested cross-validation (tuning inside each training partition), cross-fitted threshold development (using predictions made without the corresponding record), uncertainty summaries, and a clear record of what has already been seen.
+The project separates model selection, threshold selection, and performance assessment, then examines the limits of that separation. Version 0.2 adds repeated nested cross-validation, which tunes models inside each training partition, and cross-fitted threshold development, which uses predictions made without the corresponding record. It also summarizes uncertainty and records which data have already been inspected.
 
 **The 114-record holdout was inspected in version 0.1.** We preserve it and keep it out of all computation used to develop models and thresholds. Its new results are descriptive replication, not fresh blind validation. The main new investigation uses the other 455 records.
 
@@ -23,7 +23,7 @@ The useful question is methodological: can we separate model selection, threshol
 5. Uses those development predictions to compare illustrative false-negative:false-positive penalties of 1:1, 2:1, and 5:1. All thresholds come from a fixed candidate grid.
 6. Fits final pipelines using development data, then describes their performance on the previously observed holdout. No holdout result feeds back into the script's choices.
 
-The source code never exports patient identifiers, row-level predictions, or a deployable model. It saves aggregate results and fingerprints instead.
+The code saves aggregate results and data fingerprints. It exports no patient identifiers, row-level predictions, or deployable model.
 
 A separate candidate-file preflight now checks feature names, finite values, label direction, provenance declarations, and exact numerical overlap with the benchmark. It fits no model and does not establish that a new dataset is suitable for external validation.
 
@@ -72,7 +72,7 @@ In the checked-in run, logistic regression's mean outer-fold area under the rece
 
 Changing the illustrative penalty changed the selected cutoff. For logistic regression it was **0.50** under equal penalties and **0.35** when false negatives received twice the weight. These are teaching assumptions, not clinical valuations. The plotted quantity was minimized on the same cross-fitted development labels, so it is a **tuning loss**, not an unbiased estimate of future cost.
 
-On the historical holdout, the lower logistic cutoff added a false positive without removing its one false negative. That is a useful reminder: a development-data choice does not guarantee improvement in another sample. Read [the findings](docs/findings.md) for the full interpretation.
+The lower logistic cutoff did not improve the historical holdout: it added a false positive without removing its one false negative. A choice that helps on development data need not help in another sample. Read [the findings](docs/findings.md) for the full interpretation.
 
 ![Previously observed holdout ROC and calibration summaries](results/diagnostics.png)
 
@@ -80,7 +80,9 @@ The calibration bars are pointwise Wilson intervals (uncertainty intervals for e
 
 ### What if the base rate changes?
 
-The added prevalence exercise holds the existing logistic cutoffs and historical sensitivity/specificity fixed, then calculates positive and negative predictive values (PPV and NPV: the fraction of positive/negative calls with the corresponding reference label) at assumed positive-label fractions from 1% to 50%. These are mathematical scenarios with untested transportability assumptions, not new screening results or individual risk recalibration. [Read the generated report](results/prevalence_report.md) for the table and curves. No model is retrained and no cutoff is changed in this step.
+The prevalence exercise asks how the fraction of positive labels affects positive and negative predictive values (PPV and NPV). These values describe the fraction of positive or negative calls with the corresponding reference label. The calculation holds the existing logistic cutoffs and historical sensitivity/specificity fixed, then varies the assumed positive-label fraction from 1% to 50%.
+
+These mathematical scenarios assume that the historical rates transfer to the new population; that assumption is untested. They provide no new screening results or individual risk recalibration. [Read the generated report](results/prevalence_report.md) for the table and curves. This step retrains no model and changes no cutoff.
 
 ## Practical use and limitations
 

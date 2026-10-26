@@ -4,7 +4,7 @@ Terminology: [glossary](glossary.md). Scientific and operational choices: [assum
 
 ## Where this fits
 
-The main study teaches validation on a familiar public feature dataset. The new preflight command answers an earlier question: does a candidate file meet an explicit feature and provenance contract before anyone discusses applying a model? It does not evaluate a model on that file. The historical 114-record holdout remains previously observed, and no new external cohort is added.
+The main study teaches model validation on a familiar public feature dataset. The preflight command checks whether a candidate file meets the feature and provenance contract before anyone applies a model. It does not evaluate a model on that file. The historical 114-record holdout remains previously observed, and the project adds no new external cohort.
 
 ## Input and output contract
 
@@ -12,7 +12,9 @@ The main study teaches validation on a familiar public feature dataset. The new 
 
 An optional `reference_label` accepts only `0` for benign and `1` for malignant. A labelled file must declare exactly that `label_mapping`. Metadata requires nonempty `source`, `measurement_method`, and `feature_definition_reference`; `data_kind` must be `synthetic` or `public_deidentified_features`. `independent_of_development` and `known_overlap_checked` must be JSON booleans. These are operator declarations, not facts established by software.
 
-The output gives input SHA-256 hashes, counts, constant features, repeated feature-vector counts, and exact numeric overlap with all 569 benchmark records, including development and historical holdout data. Duplicate counts are extra occurrences after the first, regardless of label. Overlap counts include every matching input row. Matching uses parsed floating-point feature values; rounding, transformations, or measurement changes can conceal a relationship. Absence of an exact match does not prove independence. `suitable_for_external_validation` is always `not_assessed`.
+The output reports input SHA-256 hashes, counts, constant features, repeated feature-vector counts, and exact numeric overlap with all 569 benchmark records, including development and historical holdout data. Duplicate counts include occurrences after the first, regardless of label. Overlap counts include every matching input row.
+
+Exact matching cannot establish independence. It compares parsed floating-point feature values, so rounding, transformations, or measurement changes can conceal a relationship. `suitable_for_external_validation` is always `not_assessed`.
 
 The optional `--feature-map FILE.json` checks the [30-feature mapping contract](feature-mapping.md). It reports missing definitions, units, transformations, review declarations, and file binding. `--require-feature-map` additionally requires all those declarations and a matching CSV digest. It does not perform transformations or establish measurement equivalence. Malformed map types, duplicate/unknown feature names, unsupported versions, or a wrong digest fail in either mode. Without these flags, preflight output is unchanged.
 
