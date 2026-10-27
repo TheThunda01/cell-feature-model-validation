@@ -25,6 +25,10 @@ The project separates model selection, threshold selection, and performance asse
 
 The code saves aggregate results and data fingerprints. It exports no patient identifiers, row-level predictions, or deployable model.
 
+![Development, threshold tuning and historical evaluation](docs/figures/data-roles/data-roles.png)
+
+The [editable data-role diagram](docs/data-roles-diagram.md) shows which records can influence each step. Cross-fitted predictions support threshold development, but the minimized loss still reuses development labels. The historical holdout remains an already observed replication sample.
+
 A separate candidate-file preflight now checks feature names, finite values, label direction, provenance declarations, and exact numerical overlap with the benchmark. It fits no model and does not establish that a new dataset is suitable for external validation.
 
 ## Quick start

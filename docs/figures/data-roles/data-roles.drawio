@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" version="32.6.1">
+  <diagram name="Development, assessment and historical holdout" id="data-roles">
+    <mxGraphModel dx="1280" dy="1000" grid="1" gridSize="10" page="1" pageScale="1" pageWidth="1280" pageHeight="1000" background="#ffffff">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="Where data can influence a decision" style="rounded=1;html=0;fillColor=#ffffff;strokeColor=#ffffff;fontColor=#1f3443;fontSize=30;fontFamily=Arial;spacing=14;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="70" y="20" width="1140" height="55" />
+        </mxCell>
+        <mxCell id="input" value="Historical dataset&#10;569 records · 30 features" style="rounded=1;html=0;fillColor=#e8f1f7;strokeColor=#27617f;fontColor=#1f3443;fontSize=19;fontFamily=Arial;spacing=14;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="460" y="100" width="340" height="90" />
+        </mxCell>
+        <mxCell id="development" value="455 development records&#10;All model and threshold choices stay here" style="rounded=1;html=0;fillColor=#dcece7;strokeColor=#386c5c;fontColor=#1f3443;fontSize=19;fontFamily=Arial;spacing=14;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="60" y="245" width="710" height="85" />
+        </mxCell>
+        <mxCell id="holdout" value="114 historical holdout records&#10;Already inspected in version 0.1" style="rounded=1;html=0;fillColor=#fff0dc;strokeColor=#a66b28;fontColor=#1f3443;fontSize=19;fontFamily=Arial;spacing=14;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="870" y="245" width="350" height="105" />
+        </mxCell>
+        <mxCell id="nested" value="Repeated nested assessment&#10;4 outer folds × 2 repeats&#10;3 inner folds tune only inside&#10;each outer training partition" style="rounded=1;html=0;fillColor=#e8f1f7;strokeColor=#27617f;fontColor=#1f3443;fontSize=19;fontFamily=Arial;spacing=14;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="60" y="405" width="335" height="155" />
+        </mxCell>
+        <mxCell id="refit" value="Final model fitting&#10;5-fold tuning on all 455&#10;development records&#10;Refit both learned models" style="rounded=1;html=0;fillColor=#dcece7;strokeColor=#386c5c;fontColor=#1f3443;fontSize=19;fontFamily=Arial;spacing=14;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="435" y="405" width="335" height="155" />
+        </mxCell>
+        <mxCell id="outer" value="Outputs from the outer fits&#10;8 fold scores per model&#10;Fixed 0.5 classification cutoff&#10;2 predictions per record, each&#10;excluded from fitting/tuning&#10;Average the 2 predictions" style="rounded=1;html=0;fillColor=#e8f1f7;strokeColor=#27617f;fontColor=#1f3443;fontSize=19;fontFamily=Arial;spacing=14;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="60" y="640" width="335" height="175" />
+        </mxCell>
+        <mxCell id="threshold" value="Threshold development&#10;Fixed cutoff grid searched&#10;on averaged cross-fitted&#10;probabilities&#10;Loss uses development labels" style="rounded=1;html=0;fillColor=#dcece7;strokeColor=#386c5c;fontColor=#1f3443;fontSize=19;fontFamily=Arial;spacing=14;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="435" y="640" width="335" height="175" />
+        </mxCell>
+        <mxCell id="historical" value="Historical evaluation&#10;Apply final models and&#10;development-selected cutoffs&#10;Descriptive replication only" style="rounded=1;html=0;fillColor=#fff0dc;strokeColor=#a66b28;fontColor=#1f3443;fontSize=19;fontFamily=Arial;spacing=14;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="870" y="575" width="350" height="175" />
+        </mxCell>
+        <mxCell id="limits" value="Interpretation boundaries&#10;Fold variability is not a confidence interval. Minimized threshold loss is tuning loss.&#10;The inspected holdout provides no fresh blind validation; it never feeds back into scripted choices." style="rounded=1;html=0;fillColor=#f3f5f7;strokeColor=#8195a3;fontColor=#1f3443;fontSize=18;fontFamily=Arial;spacing=14;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="60" y="885" width="1160" height="95" />
+        </mxCell>
+        <mxCell id="split-development" value="" edge="1" parent="1" source="input" target="development" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;strokeWidth=2;strokeColor=#506c7b;fontSize=16;labelBackgroundColor=#ffffff;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="split-holdout" value="" edge="1" parent="1" source="input" target="holdout" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;strokeWidth=2;strokeColor=#506c7b;fontSize=16;labelBackgroundColor=#ffffff;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="development-nested" value="" edge="1" parent="1" source="development" target="nested" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;strokeWidth=2;strokeColor=#506c7b;fontSize=16;labelBackgroundColor=#ffffff;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="development-refit" value="" edge="1" parent="1" source="development" target="refit" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;strokeWidth=2;strokeColor=#506c7b;fontSize=16;labelBackgroundColor=#ffffff;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="nested-outputs" value="" edge="1" parent="1" source="nested" target="outer" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;strokeWidth=2;strokeColor=#506c7b;fontSize=16;labelBackgroundColor=#ffffff;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="crossfit-threshold" value="" edge="1" parent="1" source="outer" target="threshold" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;strokeWidth=2;strokeColor=#506c7b;fontSize=16;labelBackgroundColor=#ffffff;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="refit-evaluate" value="Fitted models" edge="1" parent="1" source="refit" target="historical" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;strokeWidth=2;strokeColor=#506c7b;fontSize=16;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.2;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="threshold-evaluate" value="Selected cutoffs" edge="1" parent="1" source="threshold" target="historical" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;strokeWidth=2;strokeColor=#506c7b;fontSize=16;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.8;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="holdout-evaluate" value="Evaluation only" edge="1" parent="1" source="holdout" target="historical" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;strokeWidth=2;strokeColor=#506c7b;fontSize=16;labelBackgroundColor=#ffffff;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
