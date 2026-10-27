@@ -14,6 +14,8 @@ The project separates model selection, threshold selection, and performance asse
 
 **The 114-record holdout was inspected in version 0.1.** We preserve it and keep it out of all computation used to develop models and thresholds. Its new results are descriptive replication, not fresh blind validation. The main new investigation uses the other 455 records.
 
+In [From biological measurements to better experiments](https://github.com/TheThunda01/TheThunda01/blob/main/PROJECT_GUIDE.md), this is a supporting study of fair model evaluation. Its role is to show how tuning, threshold choices, and previously inspected data affect what a reported score means.
+
 ## What it does
 
 1. Keeps the original 455/114 split, verified by a stored index fingerprint.
