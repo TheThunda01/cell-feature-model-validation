@@ -28,3 +28,7 @@ Computational biology often involves comparing models on limited data. A clear a
 - Reporting dataset reuse and limits openly.
 
 There is no claim of a new biomarker, clinical benefit, or deployment readiness. For the actual observations, start with [findings](findings.md); for the calculation details, see [methods](methods.md).
+
+## Where this fits
+
+The [GFP investigation](https://github.com/TheThunda01/gfp-active-learning) asks which stored measurement to reveal next. This study provides a complementary lesson: deciding how a model will be evaluated requires explicit data roles. The projects use different measurements and comparisons; this benchmark supplies no clinical validation for either.
