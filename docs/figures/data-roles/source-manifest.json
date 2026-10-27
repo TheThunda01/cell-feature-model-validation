@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "source": "results/metrics.json",
+  "sha256_lf_normalized": "059efd3f876f934033f3cff1a7563b419b20c95f410ec378d47e52ddb7f0813d",
+  "scope": "Data-role explanation of the saved protocol; no analysis rerun or new validation claim.",
+  "counts": {
+    "n_samples": 569,
+    "n_train": 455,
+    "n_test": 114,
+    "n_features": 30
+  },
+  "method_source": "docs/methods.md"
+}
