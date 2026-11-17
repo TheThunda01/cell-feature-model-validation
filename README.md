@@ -50,7 +50,23 @@ python scripts/check_reproduction.py reproduced-results
 
 The default workload uses small parameter grids and 100 trees per forest. The complete study took about 21 seconds in the tested environment; timing will vary with hardware. The commands write aggregate tables, JSON reports, and four figures to `reproduced-results/`, then compare the numerical results with the checked-in files in `results/`. This keeps the reference outputs available for comparison.
 
-Try the input contract on explicitly synthetic feature values:
+### How to read the reproduction check
+
+```mermaid
+flowchart LR
+    A["Each run's holdout table"] --> B["Verify its recorded SHA-256"]
+    B --> C["Compare reference and rerun JSON and CSV"]
+    C --> D["Check field names, row counts and categories"]
+    C --> E["Compare numerical values within tolerance"]
+    D --> F["Report success only when every check passes"]
+    E --> F
+```
+
+A mismatch exits with an error that identifies the file and field. The same checks run under standard and optimized Python. Figures can vary with the renderer, so use the numerical tables to check the evidence.
+
+### Try a candidate file
+
+Run the input contract on explicitly synthetic feature values:
 
 ```sh
 python -m cell_validation.preflight \
