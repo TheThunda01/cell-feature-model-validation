@@ -1,20 +1,12 @@
 # Cell-feature model validation
 
-**A study of how model tuning, data splits, and decision thresholds affect evaluation.**
+What changes when a model treats a missed malignant record as twice as costly as a false alarm? This study follows that choice from model development to evaluation on the Wisconsin Diagnostic Breast Cancer dataset. Each of its 569 records contains 30 numerical measurements of cell nuclei. [Dataset source](https://doi.org/10.24432/C5DW2B)
 
 ## Why this project
 
-**New here? [Read the project background, purpose, and key themes](docs/project-context.md).**
+A model assigns a probability. A cutoff turns that probability into a positive or negative call. For logistic regression, weighting a missed case twice as heavily moved the development cutoff from 0.50 to 0.35. On the 114 historical evaluation records, the lower cutoff added one false alarm and caught no additional malignant record. [Threshold results](results/holdout_thresholds.csv)
 
-[Understand the sampled biology and prediction concepts](docs/biology-and-concepts.md) · [Explore the conditional prevalence scenarios](docs/prevalence-sensitivity.md).
-
-This project compares a scaled logistic regression, a small random forest, and a prior-only baseline on the Wisconsin Diagnostic Breast Cancer dataset. The input is 30 cell-image features (numerical summaries of nuclear appearance) across 569 records ([Wolberg et al., 1993](https://doi.org/10.24432/C5DW2B)). It is a biological-feature classification example, not a genomics dataset, clinical tool, or new cancer finding.
-
-The project separates model selection, threshold selection, and performance assessment, then examines the limits of that separation. Version 0.2 adds repeated nested cross-validation, which tunes models inside each training partition, and cross-fitted threshold development, which uses predictions made without the corresponding record. It also summarizes uncertainty and records which data have already been inspected.
-
-**The 114-record holdout was inspected in version 0.1.** We preserve it and keep it out of all computation used to develop models and thresholds. Its new results are descriptive replication, not fresh blind validation. The main new investigation uses the other 455 records.
-
-In [From biological measurements to better experiments](https://github.com/TheThunda01/TheThunda01/blob/main/PROJECT_GUIDE.md), this is a supporting study of fair model evaluation. Its role is to show how tuning, threshold choices, and previously inspected data affect what a reported score means.
+Those 114 records were already examined in version 0.1. The current study sets them aside during model fitting and cutoff selection, then uses them for descriptive replication. The other 455 records support the comparison of logistic regression, a random forest, and a baseline that assigns everyone the same probability. This is an educational analysis of model evaluation. [Project context](docs/project-context.md) · [Biology and concepts](docs/biology-and-concepts.md) · [Prevalence scenarios](docs/prevalence-sensitivity.md) · [Portfolio guide](https://github.com/TheThunda01/TheThunda01/blob/main/PROJECT_GUIDE.md)
 
 ## What it does
 
@@ -62,7 +54,7 @@ flowchart LR
     E --> F
 ```
 
-A mismatch exits with an error that identifies the file and field. The same checks run under standard and optimized Python. Figures can vary with the renderer, so use the numerical tables to check the evidence.
+For example, changing a numerical score from 0.1 to 0.9 makes the checker exit with a file and field name, including under optimized Python. Figures can vary with the renderer. Compare the numerical tables to check the evidence. [Reference results](results/) · [Verification record](docs/verification.md)
 
 ### Try a candidate file
 
